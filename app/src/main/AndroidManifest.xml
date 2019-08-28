@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="gmedia.net.id.perkasareseller">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!--<uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />-->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the 'MyLocation' functionality.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+        <activity android:name="gmedia.net.id.perkasareseller.DetailSharePrintout"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <activity
+            android:name="gmedia.net.id.perkasareseller.SplashScreen"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="ACT_MAIN" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity> <!-- Service -->
+        <service android:name="gmedia.net.id.perkasareseller.NotificationUtil.MyFirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name="gmedia.net.id.perkasareseller.NotificationUtil.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_notif" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/color_notif" />
+
+        <service android:name="gmedia.net.id.perkasareseller.NotificationUtil.TokenGetter" /> <!-- Service -->
+        <activity
+            android:name="gmedia.net.id.perkasareseller.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="gmedia.net.id.perkasareseller.LoginScreen"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" />
+        <activity
+            android:name="gmedia.net.id.perkasareseller.TabActivity"
+            android:label="@string/title_activity_tab"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="gmedia.net.id.perkasareseller.TopUP.IsiSaldo"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="gmedia.net.id.perkasareseller.HomeActivity"
+            android:label="@string/title_activity_home"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="ACT_HOME" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="gmedia.net.id.perkasareseller.HomeMkios.OrderMKIOS"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="gmedia.net.id.perkasareseller.HomeBulk.OrderBulk"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="gmedia.net.id.perkasareseller.HomeTcash.OrderTcash"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="gmedia.net.id.perkasareseller.HomeTokenListrik.OrderTokenListrik"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="gmedia.net.id.perkasareseller.CSChat.ChatSales"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="ACT_CHAT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="gmedia.net.id.perkasareseller.SideProfile.ProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name="gmedia.net.id.perkasareseller.HomePulsa.OrderPulsa" />
+
+        <service
+            android:name="gmedia.net.id.perkasareseller.HomePulsa.Service.USSDService"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/config_service" />
+        </service>
+
+        <service
+            android:name="gmedia.net.id.perkasareseller.HomePulsa.Service.NotificationService"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+
+        <!--<receiver android:name=".HomePulsa.Service.SmsReceiverService">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>-->
+
+        <activity android:name="gmedia.net.id.perkasareseller.DepositActivity">
+            <intent-filter>
+                <action android:name="ACT_DEPOSIT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name="gmedia.net.id.perkasareseller.PriceList.PricelistActivity" />
+        <activity android:name="gmedia.net.id.perkasareseller.PengaturanPin.UbahPinActivity" />
+        <activity android:name="gmedia.net.id.perkasareseller.NavPromo.DetailPromo" />
+        <activity
+            android:name="gmedia.net.id.perkasareseller.HomeInfoStok.ActInfoStok"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="gmedia.net.id.perkasareseller.HomeInfoStok.DetailInfoStok"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="gmedia.net.id.perkasareseller.SideInfoPSP.InformasiPSP"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="gmedia.net.id.perkasareseller.RegisterActivity"
+            android:screenOrientation="portrait" />
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity
+            android:name="gmedia.net.id.perkasareseller.MapsActivity"
+            android:label="@string/title_activity_maps" />
+        <activity android:name="gmedia.net.id.perkasareseller.SideProfile.MapsOutlet" />
+        <activity
+            android:name="gmedia.net.id.perkasareseller.SideChangePassword.ChangePassword"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="gmedia.net.id.perkasareseller.Register.OtpRegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="gmedia.net.id.perkasareseller.SideChangePassword.OtpChangePassword"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="gmedia.net.id.perkasareseller.ResetActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="gmedia.net.id.perkasareseller.Reset.OtpResetActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="gmedia.net.id.perkasareseller.HomeBukuPintar.BukuPintar"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="gmedia.net.id.perkasareseller.HomeBeliPerdana.ListBarangPerdana"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="gmedia.net.id.perkasareseller.HomePreorderPerdana.ListBarangPreorder"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="gmedia.net.id.perkasareseller.HomeBeliPerdana.DetailBarangPerdana"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="gmedia.net.id.perkasareseller.HomeBeliPerdana.DetailKeranjangPerdana"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="gmedia.net.id.perkasareseller.HomeJualPerdana.DetailJualPerdana"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+            android:screenOrientation="fullSensor"
+            tools:replace="screenOrientation" />
+        <activity
+            android:name="gmedia.net.id.perkasareseller.HomePenjualanLain.OrderLain"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="gmedia.net.id.perkasareseller.HomePenjualanLain.DetailOrderLain"
+            android:screenOrientation="portrait" />
+    </application>
+
+</manifest>

@@ -1,0 +1,93 @@
+{
+  "project_info": {
+    "project_number": "664727610928",
+    "firebase_url": "https://perkasa-1ff66.firebaseio.com",
+    "project_id": "perkasa-1ff66",
+    "storage_bucket": "perkasa-1ff66.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:664727610928:android:9492c9fd5cb6fc6d",
+        "android_client_info": {
+          "package_name": "gmedia.net.id.perkasareseller"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "664727610928-32c232ldi59filcciumj6l697gk4d2rs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "gmedia.net.id.perkasareseller",
+            "certificate_hash": "2896223dc7d59ff185b6abaf9e67b966111a3dbc"
+          }
+        },
+        {
+          "client_id": "664727610928-udt503ig0j13tb8g79itb7mkab3n4ijv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA81exNgYRkxY0MqgKkxy8Aif5FHvo6dHg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "664727610928-udt503ig0j13tb8g79itb7mkab3n4ijv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:664727610928:android:960750f6d79c30c3",
+        "android_client_info": {
+          "package_name": "id.net.gmedia.perkasaapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "664727610928-ga30eto6dmvhtafl4loj2ci92u9glofg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.net.gmedia.perkasaapp",
+            "certificate_hash": "38b8edcd00f8ec7a98320fae0d96e4efd8c102d4"
+          }
+        },
+        {
+          "client_id": "664727610928-ao76nqs5ct8k9p7cked07d7836anss2c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.net.gmedia.perkasaapp",
+            "certificate_hash": "e975876398fd23dc0982c682e25ef27081c5dde4"
+          }
+        },
+        {
+          "client_id": "664727610928-udt503ig0j13tb8g79itb7mkab3n4ijv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA81exNgYRkxY0MqgKkxy8Aif5FHvo6dHg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "664727610928-udt503ig0j13tb8g79itb7mkab3n4ijv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

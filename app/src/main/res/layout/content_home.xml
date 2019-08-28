@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="gmedia.net.id.perkasareseller.HomeActivity"
+    tools:showIn="@layout/app_bar_home">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        android:id="@+id/ll_header"
+        android:background="@color/colorPrimary"
+        android:layout_alignParentTop="true"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="@dimen/margin_small"
+            android:visibility="gone"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Saldo Tunai Rp 0 "
+                android:id="@+id/tv_saldo"
+                android:textSize="20sp"
+                android:textColor="@color/color_white_pure" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginTop="@dimen/margin_small"
+                android:paddingLeft="@dimen/margin_default"
+                android:paddingRight="@dimen/margin_default"
+                android:background="@drawable/bg_button_white"
+                android:text="Top up Saldo Tunai"
+                android:id="@+id/btn_topup"
+                android:visibility="gone"
+                android:textColor="@color/color_red"
+                android:textSize="11sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary"
+        android:layout_below="@id/ll_header"
+        android:paddingBottom="@dimen/margin_default"
+        android:paddingLeft="@dimen/margin_default"
+        android:paddingRight="@dimen/margin_default"
+        android:visibility="gone"
+        android:id="@+id/ll_menu"
+        android:weightSum="4">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginTop="@dimen/margin_small"
+                android:background="@drawable/bg_button_transparent_round"
+                android:text="Home"
+                android:layout_marginRight="@dimen/margin_small"
+                android:layout_marginLeft="@dimen/margin_default"
+                android:id="@+id/btn_nav_home"
+                android:layout_centerInParent="true"
+                android:textColor="@color/color_white_pure"
+                android:textSize="10sp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginTop="@dimen/margin_small"
+                android:background="@drawable/bg_button_transparent_round"
+                android:text="Transaksi"
+                android:layout_marginRight="@dimen/margin_small"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:id="@+id/btn_nav_transaksi"
+                android:layout_centerInParent="true"
+                android:textColor="@color/color_white_pure"
+                android:textSize="10sp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginTop="@dimen/margin_small"
+                android:background="@drawable/bg_button_transparent_round"
+                android:text="Penjualan"
+                android:layout_marginRight="@dimen/margin_small"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:id="@+id/btn_nav_history"
+                android:layout_centerInParent="true"
+                android:textColor="@color/color_white_pure"
+                android:textSize="10sp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginTop="@dimen/margin_small"
+                android:background="@drawable/bg_button_transparent_round"
+                android:text="Promo"
+                android:layout_marginRight="@dimen/margin_default"
+                android:layout_marginLeft="@dimen/margin_small"
+                android:id="@+id/btn_nav_promo"
+                android:layout_centerInParent="true"
+                android:textColor="@color/color_white_pure"
+                android:textSize="10sp"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/ll_container"
+        android:background="@drawable/bg_formobile"
+        android:layout_above="@id/ll_menu_bottom"
+        android:layout_below="@id/ll_menu">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/fl_container">
+        </FrameLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ll_menu_bottom"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        >
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tl_menu"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:tabTextAppearance="@style/MineCustomTabText">
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/ti_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:icon="@drawable/bg_b_home"
+                android:paddingTop="@dimen/margin_small"
+                android:text="Home" />
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/ti_transaksi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:icon="@drawable/bg_b_transaksi"
+                android:text="Pembelian
+" />
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/ti_history"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:icon="@drawable/bg_b_history"
+                android:text="Penjualan" />
+
+            <android.support.design.widget.TabItem
+                android:id="@+id/ti_promo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:icon="@drawable/bg_b_promo"
+                android:text="Promo"/>
+        </android.support.design.widget.TabLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="@drawable/bg_gradient"
+        android:layout_above="@id/ll_menu_bottom"/>
+
+</RelativeLayout>

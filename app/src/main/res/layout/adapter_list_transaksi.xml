@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bg_white_rounded"
+        android:layout_marginBottom="@dimen/margin_default">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/margin_small"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/color_white_pure"
+                android:id="@+id/tv_status"
+                android:textSize="14sp"
+                android:text=""
+                android:paddingTop="@dimen/margin_small"
+                android:paddingBottom="@dimen/margin_small"
+                android:background="@drawable/bg_status"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:gravity="center"
+                    android:textColor="@color/color_black"
+                    android:id="@+id/tv_item2"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:textSize="@dimen/size_title3"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/size_title1"
+                    android:id="@+id/tv_item1"
+                    android:ellipsize="none"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/default_line"
+            android:background="@color/color_black"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:visibility="gone"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@mipmap/ic_expand"
+                android:id="@+id/iv_collapse"
+                android:background="?attr/selectableItemBackground"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ll_detail"
+            android:visibility="visible"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Total Harga"
+                android:layout_marginTop="@dimen/margin_tiny"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
+                android:singleLine="true"
+                android:textColor="@color/color_black"
+                android:ellipsize="end"
+                android:textSize="@dimen/size_title3"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:gravity="right"
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/size_title2"
+                android:id="@+id/tv_item3"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/default_line"
+                android:background="@color/color_black"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pembayaran"
+                android:layout_marginTop="@dimen/margin_small"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
+                android:singleLine="true"
+                android:textColor="@color/color_black"
+                android:ellipsize="end"
+                android:textSize="@dimen/size_title3"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/color_black"
+                android:textSize="@dimen/size_title2"
+                android:id="@+id/tv_item4"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/default_line"
+                android:background="@color/color_black"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/ll_expiration">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Berlaku Hingga"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
+                    android:singleLine="true"
+                    android:textColor="@color/color_black"
+                    android:ellipsize="end"
+                    android:textSize="@dimen/size_title3"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:gravity="right"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/size_title2"
+                    android:id="@+id/tv_item5"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/default_line"
+                    android:background="@color/color_black"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
