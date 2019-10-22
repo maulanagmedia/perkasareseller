@@ -188,6 +188,10 @@ public class ChatSales extends AppCompatActivity {
                     edtChat.setError(null);
                 }
 
+                if(isLoading){
+                    return;
+                }
+
                 sendChat(edtChat.getText().toString());
             }
         });

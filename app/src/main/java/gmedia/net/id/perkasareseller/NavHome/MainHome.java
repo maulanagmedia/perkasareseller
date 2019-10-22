@@ -436,7 +436,7 @@ public class MainHome extends Fragment implements ViewPager.OnPageChangeListener
                     }
                 };
 
-                dialogBox.showDialog(clickListener, "Ulangi Proses", "Terjadi kesalahan saat mengambil data");
+                dialogBox.showDialog(clickListener, "Ulangi Proses", result);
             }
         });
     }

@@ -152,7 +152,7 @@ public class ChatAdapter extends ArrayAdapter {
 
             holder.tvNama.setText(item.getItem7());
         }else{
-            holder.tvNama.setText(item.getItem8());
+            holder.tvNama.setText(item.getItem7());
         }
 
         holder.tvPesan.setText(item.getItem3());
