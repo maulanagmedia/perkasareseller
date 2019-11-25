@@ -353,7 +353,6 @@ public class DetailKeranjangPerdana extends AppCompatActivity {
 
             @Override
             public void onError(String result) {
-
                 String message = "Terjadi kesalahan saat memuat data";
                 Toast.makeText(context, message, Toast.LENGTH_LONG).show();
                 if(progressDialog != null && progressDialog.isShowing()) progressDialog.dismiss();
@@ -394,10 +393,10 @@ public class DetailKeranjangPerdana extends AppCompatActivity {
         JSONObject jBody = new JSONObject();
 
         try {
-            jBody.put("barang", jArrayBarang);
-            jBody.put("pin", pin);
-        } catch (JSONException e) {
-            e.printStackTrace();
+                jBody.put("barang", jArrayBarang);
+                jBody.put("pin", pin);
+            } catch (JSONException e) {
+                e.printStackTrace();
         }
 
         ApiVolley request = new ApiVolley(context, jBody, "POST", ServerURL.beliPerdana, new ApiVolley.VolleyCallback() {

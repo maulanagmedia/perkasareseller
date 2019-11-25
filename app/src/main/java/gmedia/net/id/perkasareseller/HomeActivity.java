@@ -166,6 +166,7 @@ public class HomeActivity extends RuntimePermissionsActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         initUI();
+        getTotalDeposit();
     }
 
     @Override
@@ -227,7 +228,6 @@ public class HomeActivity extends RuntimePermissionsActivity
 
             TabLayout.Tab tab = tlMenu.getTabAt(stateFragment);
             tab.select();
-
             ChangeFragment(0);
             ChangeFragment(stateFragment);
             stateFragment = 0;
@@ -417,7 +417,6 @@ public class HomeActivity extends RuntimePermissionsActivity
                 try {
                     responseAPI = new JSONObject(result);
                     String status = responseAPI.getJSONObject("metadata").getString("status");
-
                     if(iv.parseNullInteger(status) == 200){
                         latestVersion = responseAPI.getJSONObject("response").getString("build_version");
                         link = responseAPI.getJSONObject("response").getString("link_update");

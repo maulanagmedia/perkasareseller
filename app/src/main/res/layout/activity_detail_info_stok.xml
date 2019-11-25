@@ -353,7 +353,8 @@
                             android:layout_height="@dimen/default_line_big"
                             android:orientation="vertical"
                             android:layout_margin="@dimen/margin_small"
-                            android:background="@color/color_white"></LinearLayout>
+                            android:background="@color/color_white">
+                        </LinearLayout>
                     </LinearLayout>
 
                     <LinearLayout

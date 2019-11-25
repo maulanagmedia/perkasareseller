@@ -117,9 +117,9 @@ public class OrderTcash extends AppCompatActivity {
         llBank = (LinearLayout) findViewById(R.id.ll_bank);
         spBank = (Spinner) findViewById(R.id.sp_bank);
 
-        rgCrBayar = (RadioGroup) findViewById(R.id.rg_crbayar);
-        crBayar = "1";
-        selectedBank = "";
+//        rgCrBayar = (RadioGroup) findViewById(R.id.rg_crbayar);
+//        crBayar = "1";
+//        selectedBank = "";
 
         listBank = new ArrayList<>();
         adapterBank = new CustomSpinnerAdapter((Activity) context, R.layout.adapter_bank, listBank);
@@ -245,56 +245,56 @@ public class OrderTcash extends AppCompatActivity {
             }
         });
 
-        rgCrBayar.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+//        rgCrBayar.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+//
+//                if(i == R.id.rb_tunai) {
+//
+//                    crBayar = "1";
+//                    llBank.setVisibility(View.GONE);
+//                    selectedBank = "";
+//                }else {
+//
+//                    crBayar = "2";
+//                    llBank.setVisibility(View.VISIBLE);
+//
+//                    svCountainer.post(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            svCountainer.fullScroll(ScrollView.FOCUS_DOWN);
+//                        }
+//                    });
+//
+//                    if(spBank.getSelectedItem() != null) {
+//
+//                        OptionItem item = (OptionItem) spBank.getSelectedItem();
+//                        selectedBank = item.getValue();
+//                    }
+//                }
+//            }
+//        });
 
-                if(i == R.id.rb_tunai) {
-
-                    crBayar = "1";
-                    llBank.setVisibility(View.GONE);
-                    selectedBank = "";
-                }else {
-
-                    crBayar = "2";
-                    llBank.setVisibility(View.VISIBLE);
-
-                    svCountainer.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            svCountainer.fullScroll(ScrollView.FOCUS_DOWN);
-                        }
-                    });
-
-                    if(spBank.getSelectedItem() != null) {
-
-                        OptionItem item = (OptionItem) spBank.getSelectedItem();
-                        selectedBank = item.getValue();
-                    }
-                }
-            }
-        });
-
-        spBank.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-                OptionItem item = (OptionItem) adapterView.getItemAtPosition(i);
-
-                if(crBayar.equals("1")){
-
-                    selectedBank = "";
-                }else{
-
-                    selectedBank = item.getValue();
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
+//        spBank.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//
+//                OptionItem item = (OptionItem) adapterView.getItemAtPosition(i);
+//
+//                if(crBayar.equals("1")){
+//
+//                    selectedBank = "";
+//                }else{
+//
+//                    selectedBank = item.getValue();
+//                }
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//            }
+//        });
     }
 
     private void getHarga() {

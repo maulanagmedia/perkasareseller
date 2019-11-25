@@ -758,8 +758,6 @@ public class IsiSaldo extends AppCompatActivity {
         builder.setCancelable(false);
 
         final Button btnOk = (Button) viewDialog.findViewById(R.id.btn_ok);
-
-
         final android.app.AlertDialog alert = builder.create();
         alert.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 
@@ -795,7 +793,7 @@ public class IsiSaldo extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        ApiVolley request = new ApiVolley(context, jBody, "POST", ServerURL.beliSaldoTunai, new ApiVolley.VolleyCallback() {
+        ApiVolley request = new ApiVolley(context, jBody, "POST", ServerURL.topUpDeposit, new ApiVolley.VolleyCallback() {
             @Override
             public void onSuccess(String result) {
 
@@ -803,7 +801,6 @@ public class IsiSaldo extends AppCompatActivity {
                 String message = "Terjadi kesalahan saat memuat data";
 
                 try {
-
                     JSONObject response = new JSONObject(result);
                     String status = response.getJSONObject("metadata").getString("status");
                     message = response.getJSONObject("metadata").getString("message");
@@ -814,13 +811,13 @@ public class IsiSaldo extends AppCompatActivity {
 
                             JSONObject jo = response.getJSONObject("response");
                             String nominal = jo.getString("nominal");
-                            String rekening = jo.getString("rekening");
-                            String atasnama = jo.getString("atasnama");
+                            String rekening = jo.getString("no_rekening");
+                            String atasnama = jo.getString("atas_nama");
                             String bank = jo.getString("bank");
                             String expiredDate = jo.getString("expired_at");
                             showResultDialog(nominal, rekening, bank, atasnama, expiredDate);
                         }else{
-                            //Toast.makeText(context, message, Toast.LENGTH_LONG).show();
+                            Toast.makeText(context, message, Toast.LENGTH_LONG).show();
                             HomeActivity.stateFragment = 1;
                             onBackPressed();
                         }

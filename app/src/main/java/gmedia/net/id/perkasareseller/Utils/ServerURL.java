@@ -7,6 +7,8 @@ package gmedia.net.id.perkasareseller.Utils;
 public class ServerURL {
 
     private static final String baseURL = "http://myperkasa.com/api/reseller/";
+    //private static final String baseURL = "https://192.168.20.34:8062/";
+
     //private static final String baseURL = "http://119.2.53.122/mobilesalesforce/apiresv1/";
     //private static final String baseURL = "https://api.putmasaripratama.co.id/apiresv1/";
     //private static final String baseURL = "http://api.putmasaripratama.co.id/apiresv1/";
@@ -28,7 +30,7 @@ public class ServerURL {
     public static final String getNomor = baseURL + "profile/master_nomor/";
     public static final String getDenom = baseURL + "profile/master_harga/";
     public static final String ubahPin = baseURL + "profile/ubah_pin/";
-    public static final String priceList = baseURL + "profile/pricelist/";
+    public static final String priceList = baseURL + "Perdana/get_perdana";
     public static final String getPSPInformastion = baseURL + "Profile/view_customer_service/";
     public static final String getTotalDeposit = baseURL + "profile/total_deposite/";
     public static final String saveInfoStok = baseURL + "Profile/simpan_stok/";
@@ -42,16 +44,17 @@ public class ServerURL {
     public static final String beliTcash = baseURL + "Mkios/beli_tcash/";
     public static final String beliSaldoTunai= baseURL + "Mkios/beli_deposit/";
     public static final String getHarga = baseURL + "mkios/get_harga/";
-    public static final String viewTransaksi = baseURL + "mkios/view_transaksi/";
+    public static final String viewTransaksi = baseURL + "Mkios/view_transaksi/";
     public static final String viewHistory = baseURL + "mkios/view_history/";
-    public static final String topUpDeposit = baseURL + "deposite/topup/";
-    public static final String viewDeposit = baseURL + "deposite/view_deposite/";
+    public static final String topUpDeposit = baseURL + "Mkios/deposite_topup";
+    public static final String viewDeposit = baseURL + "Mkios/deposite_saldo/";
     public static final String viewHistoryDeposit = baseURL + "Deposite/view_history/";
     public static final String getBarangDS = baseURL + "Direct_Sale/view_barang/";
     public static final String saveReplyDS = baseURL + "Direct_Sale/save_reply/";
     public static final String saveOrderDS = baseURL + "Direct_Sale/direct_order/";
     public static final String saveDSPerdana = baseURL + "Direct_Sale/jual_perdana/";
-    public static final String checkSaldo = baseURL + "Mkios/cek_saldo/";
+    public static final String checkSaldo = baseURL + "Mkios/deposite_saldo/";
+    //Mkios/cek_saldo
     public static final String getLatestVersion = baseURL + "Version/";
     public static final String getBukuPintar = baseURL + "Buku/";
     public static final String beliPerdana = baseURL + "Perdana/pre_order/";

@@ -347,6 +347,7 @@ public class MainHome extends Fragment implements ViewPager.OnPageChangeListener
 
         int jumlahKolom = 4;
 
+
         int menuWidth = 0;
         double menuFloat = (size.x) / jumlahKolom;
         menuWidth = (int) menuFloat;
@@ -362,7 +363,6 @@ public class MainHome extends Fragment implements ViewPager.OnPageChangeListener
 //        rvListMenu.addItemDecoration(new NavMenu.GridSpacingItemDecoration(2, dpToPx(10), true));
         rvKategori.setItemAnimator(new DefaultItemAnimator());
         rvKategori.setAdapter(adapter);
-
         EndlessScroll scrollListener = new EndlessScroll((GridLayoutManager) mLayoutManager) {
             @Override
             public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
@@ -771,14 +771,14 @@ public class MainHome extends Fragment implements ViewPager.OnPageChangeListener
                     String status = response.getJSONObject("metadata").getString("status");
                     message = response.getJSONObject("metadata").getString("message");
 
-                    listKategori.add(
+                    /*listKategori.add(
                             new CustomItem(
                                     "pulsa"
                                     ,"Pulsa/Tcash"
                                     ,R.drawable.ic_jual_pulsa
                                     ,""
                                     ,"0"
-                            ));
+                            ));*/
 
                     /*listKategori.add(
                             new CustomItem(

@@ -23,7 +23,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginBottom="@dimen/margin_small"
-            android:visibility="gone"
             android:gravity="center">
 
             <TextView
@@ -43,7 +42,6 @@
                 android:background="@drawable/bg_button_white"
                 android:text="Top up Saldo Tunai"
                 android:id="@+id/btn_topup"
-                android:visibility="gone"
                 android:textColor="@color/color_red"
                 android:textSize="11sp"/>
         </LinearLayout>

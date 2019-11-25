@@ -141,7 +141,7 @@ public class OrderMKIOS extends AppCompatActivity {
         llBank = (LinearLayout) findViewById(R.id.ll_bank);
         spBank = (Spinner) findViewById(R.id.sp_bank);
 
-        rgCrBayar = (RadioGroup) findViewById(R.id.rg_crbayar);
+//        rgCrBayar = (RadioGroup) findViewById(R.id.rg_crbayar);
         crBayar = "1";
         selectedBank = "";
 
@@ -324,35 +324,35 @@ public class OrderMKIOS extends AppCompatActivity {
             }
         });
 
-        rgCrBayar.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-
-                if(i == R.id.rb_tunai) {
-
-                    crBayar = "1";
-                    llBank.setVisibility(View.GONE);
-                    selectedBank = "";
-                }else {
-
-                    crBayar = "2";
-                    llBank.setVisibility(View.VISIBLE);
-
-                    svCountainer.post(new Runnable() {
-                        @Override
-                        public void run() {
-                            svCountainer.fullScroll(ScrollView.FOCUS_DOWN);
-                        }
-                    });
-
-                    if(spBank.getSelectedItem() != null) {
-
-                        OptionItem item = (OptionItem) spBank.getSelectedItem();
-                        selectedBank = item.getValue();
-                    }
-                }
-            }
-        });
+//        rgCrBayar.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+//
+//                if(i == R.id.rb_tunai) {
+//
+//                    crBayar = "1";
+//                    llBank.setVisibility(View.GONE);
+//                    selectedBank = "";
+//                }else {
+//
+//                    crBayar = "2";
+//                    llBank.setVisibility(View.VISIBLE);
+//
+//                    svCountainer.post(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            svCountainer.fullScroll(ScrollView.FOCUS_DOWN);
+//                        }
+//                    });
+//
+//                    if(spBank.getSelectedItem() != null) {
+//
+//                        OptionItem item = (OptionItem) spBank.getSelectedItem();
+//                        selectedBank = item.getValue();
+//                    }
+//                }
+//            }
+//        });
 
         spBank.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -554,7 +554,6 @@ public class OrderMKIOS extends AppCompatActivity {
         try {
             jBody.put("barang", jArrayBarang);
             jBody.put("pin", pin);
-            jBody.put("crbayar", crBayar);
             jBody.put("id_bank", selectedBank);
             jBody.put("nomor", session.getUsername());
         } catch (JSONException e) {

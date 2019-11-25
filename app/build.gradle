@@ -49,6 +49,8 @@ dependencies {
     implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
     // for crashlitycs
     implementation 'com.google.zxing:core:3.3.0'
+    implementation 'com.android.volley:volley:1.1.1'
+
     implementation('com.journeyapps:zxing-android-embedded:3.6.0') { transitive = false }
     implementation project(':bluetoothprinter')
 }

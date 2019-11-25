@@ -211,15 +211,19 @@ public class MainTransaksi extends Fragment {
                         for(int i = 0; i < jsonArray.length(); i ++){
                             JSONObject jo = jsonArray.getJSONObject(i);
                             listTransaksi.add(
-                                    new CustomItem(jo.getString("nobukti"),
-                                            jo.getString("nobukti"),
+                                    new CustomItem(jo.getString("id"),
                                             jo.getString("tgl"),
+                                            jo.getString("nobukti"),
                                             jo.getString("keterangan"),
                                             jo.getString("total"),
+                                            jo.getString("nomor"),
+                                            jo.getString("jam"),
                                             jo.getString("status_transaksi"),
-                                            (jo.getString("norekening").isEmpty() ? "" : jo.getString("norekening")+ " ("+ jo.getString("bank")+") a/n "+ jo.getString("atasnama"))
+                                            jo.getString("kode_lokasi"),
+                                            (jo.getString("rekening").isEmpty() ? "" : jo.getString("rekening")+ " ("+ jo.getString("bank")+") a/n "+ jo.getString("atasnama"))
+                                            ,jo.getString("crbayar")
                                             ,jo.getString("expired_at")
-                                            ,jo.getString("cara_bayar")
+
                                     ));
                         }
 
