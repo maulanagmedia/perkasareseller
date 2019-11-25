@@ -166,7 +166,7 @@ public class HomeActivity extends RuntimePermissionsActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         initUI();
-        getTotalDeposit();
+
     }
 
     @Override
@@ -234,7 +234,7 @@ public class HomeActivity extends RuntimePermissionsActivity
         }
 
         //tvSaldo.setText("Nomor Anda " + session.getUsername());
-        //getTotalDeposit();
+        getTotalDeposit();
 
         //checkVersion();
     }
@@ -288,7 +288,7 @@ public class HomeActivity extends RuntimePermissionsActivity
             e.printStackTrace();
         }
 
-        ApiVolley request = new ApiVolley(context, jBody, "POST", ServerURL.checkSaldo, new ApiVolley.VolleyCallback() {
+        ApiVolley request = new ApiVolley(context, jBody, "GET", ServerURL.checkSaldo, new ApiVolley.VolleyCallback() {
             @Override
             public void onSuccess(String result) {
 
@@ -297,7 +297,7 @@ public class HomeActivity extends RuntimePermissionsActivity
                     String status = response.getJSONObject("metadata").getString("status");
                     if(status.equals("200")){
 
-                        String total = response.getJSONObject("response").getString("value");
+                        String total = response.getJSONObject("response").getString("total");
                         tvSaldo.setText("Saldo Tunai " + iv.ChangeToRupiahFormat(total));
                     }
                 } catch (JSONException e) {

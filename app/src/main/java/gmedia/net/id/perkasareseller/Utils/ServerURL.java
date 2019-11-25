@@ -53,7 +53,7 @@ public class ServerURL {
     public static final String saveReplyDS = baseURL + "Direct_Sale/save_reply/";
     public static final String saveOrderDS = baseURL + "Direct_Sale/direct_order/";
     public static final String saveDSPerdana = baseURL + "Direct_Sale/jual_perdana/";
-    public static final String checkSaldo = baseURL + "Mkios/deposite_saldo/";
+    public static final String checkSaldo = baseURL + "Profile/total_deposite/";
     //Mkios/cek_saldo
     public static final String getLatestVersion = baseURL + "Version/";
     public static final String getBukuPintar = baseURL + "Buku/";
