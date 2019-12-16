@@ -217,11 +217,12 @@ public class MainTransaksi extends Fragment {
                                             jo.getString("keterangan"),
                                             jo.getString("total"),
                                             jo.getString("nomor"),
-                                            jo.getString("jam"),
+                                            jo.getString("keterangan_crbayar"),
+                                            jo.getString("crbayar"),
                                             jo.getString("status_transaksi"),
+                                            jo.getString("jam"),
                                             jo.getString("kode_lokasi"),
                                             (jo.getString("rekening").isEmpty() ? "" : jo.getString("rekening")+ " ("+ jo.getString("bank")+") a/n "+ jo.getString("atasnama"))
-                                            ,jo.getString("crbayar")
                                             ,jo.getString("expired_at")
 
                                     ));

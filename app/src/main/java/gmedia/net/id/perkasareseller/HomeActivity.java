@@ -298,7 +298,7 @@ public class HomeActivity extends RuntimePermissionsActivity
                     if(status.equals("200")){
 
                         String total = response.getJSONObject("response").getString("total");
-                        tvSaldo.setText("Saldo Tunai " + iv.ChangeToRupiahFormat(total));
+                         tvSaldo.setText("saldo: " + iv.ChangeToRupiahFormat(total));
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

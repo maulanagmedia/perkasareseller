@@ -380,7 +380,7 @@ public class DetailKeranjangPerdana extends AppCompatActivity {
                     JSONObject jDenom = new JSONObject();
                     try {
                         jDenom.put("kdbrg", item.getItem1());
-                        jDenom.put("jumlah", item.getItem4());
+                        jDenom.put("qty", item.getItem4());
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
