@@ -35,7 +35,7 @@ public class ListTransaksiAdapter extends ArrayAdapter{
     }
 
     private static class ViewHolder {
-        private TextView tvItem1, tvItem2, tvItem3, tvItem4, tvItem5, tvStatus;
+        private TextView tvItem1, tvItem2, tvItem3, tvItem4, tvItem5, tvStatus, tvNo, tvJam;
         private LinearLayout llDetail, llExpiration;
         private ImageView ivCollapse;
     }
@@ -53,13 +53,15 @@ public class ListTransaksiAdapter extends ArrayAdapter{
         if(convertView == null){
             LayoutInflater inflater = context.getLayoutInflater();
             convertView = inflater.inflate(R.layout.adapter_list_transaksi, null);
+
             holder.tvItem1 = (TextView) convertView.findViewById(R.id.tv_item1);
             holder.tvItem2 = (TextView) convertView.findViewById(R.id.tv_item2);
             holder.tvItem3 = (TextView) convertView.findViewById(R.id.tv_item3);
             holder.tvItem4 = (TextView) convertView.findViewById(R.id.tv_item4);
             holder.tvItem5 = (TextView) convertView.findViewById(R.id.tv_item5);
             holder.tvStatus = (TextView) convertView.findViewById(R.id.tv_status);
-
+            holder.tvJam = (TextView) convertView.findViewById(R.id.tv_jam);
+            holder.tvNo = (TextView) convertView.findViewById(R.id.tv_itemNo);
             holder.ivCollapse = (ImageView) convertView.findViewById(R.id.iv_collapse);
             holder.llDetail = (LinearLayout) convertView.findViewById(R.id.ll_detail);
             holder.llExpiration = (LinearLayout) convertView.findViewById(R.id.ll_expiration);
@@ -72,27 +74,29 @@ public class ListTransaksiAdapter extends ArrayAdapter{
         final CustomItem itemSelected = items.get(position);
         holder.tvItem1.setText(itemSelected.getItem4());
         holder.tvItem2.setText(itemSelected.getItem3());
+        holder.tvNo.setText(itemSelected.getItem6());
+        holder.tvJam.setText(iv.ChangeFormatDateString(itemSelected.getItem2(),FormatItem.formatDate,FormatItem.formatDateDisplay)+ ("/") + itemSelected.getItem10());
         holder.tvItem3.setText(iv.ChangeToRupiahFormat(itemSelected.getItem5()));
 
-        if(itemSelected.getItem6().toUpperCase().trim().equals("BARU")){
+        if(itemSelected.getItem9().toUpperCase().trim().equals("BARU")){
 
             holder.tvStatus.setBackground(context.getResources().getDrawable(R.drawable.bg_status));
-        }else if(itemSelected.getItem6().toUpperCase().trim().equals("DISETUJUI")){
+        }else if(itemSelected.getItem9().toUpperCase().trim().equals("DISETUJUI")){
 
             holder.tvStatus.setBackground(context.getResources().getDrawable(R.drawable.bg_status_yellow));
-        }else if(itemSelected.getItem6().toUpperCase().trim().equals("PENDING")){
+        }else if(itemSelected.getItem9().toUpperCase().trim().equals("PENDING")){
 
             holder.tvStatus.setBackground(context.getResources().getDrawable(R.drawable.bg_status_cocolate));
-        }else if(itemSelected.getItem6().toUpperCase().trim().equals("GAGAL")){
+        }else if(itemSelected.getItem9().toUpperCase().trim().equals("GAGAL")){
 
             holder.tvStatus.setBackground(context.getResources().getDrawable(R.drawable.bg_status_pink));
-        }else if(itemSelected.getItem6().toUpperCase().trim().equals("PROSES")){
+        }else if(itemSelected.getItem9().toUpperCase().trim().equals("PROSES")){
 
             holder.tvStatus.setBackground(context.getResources().getDrawable(R.drawable.bg_status_cyan));
-        }else if(itemSelected.getItem6().toUpperCase().trim().equals("BERHASIL")){
+        }else if(itemSelected.getItem9().toUpperCase().trim().equals("BERHASIL")){
 
             holder.tvStatus.setBackground(context.getResources().getDrawable(R.drawable.bg_status_blue));
-        }else if(itemSelected.getItem6().toUpperCase().trim().equals("BATAL")){
+        }else if(itemSelected.getItem9().toUpperCase().trim().equals("BATAL")){
 
             holder.tvStatus.setBackground(context.getResources().getDrawable(R.drawable.bg_status_fail));
         }else{
@@ -109,7 +113,7 @@ public class ListTransaksiAdapter extends ArrayAdapter{
             holder.tvItem5.setText(iv.ChangeFormatDateString(itemSelected.getItem8(), FormatItem.formatTimestamp, FormatItem.formatDateTimeDisplay));
 
         }
-        holder.tvStatus.setText(itemSelected.getItem6());
+        holder.tvStatus.setText(itemSelected.getItem9());
 
         final ViewHolder finalHolder = holder;
         /*holder.ivCollapse.setOnClickListener(new View.OnClickListener() {

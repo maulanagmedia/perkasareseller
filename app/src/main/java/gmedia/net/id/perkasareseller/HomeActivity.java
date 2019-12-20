@@ -2,6 +2,7 @@ package gmedia.net.id.perkasareseller;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -35,6 +36,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.leonardus.irfan.bluetoothprinter.PspPrinter;
@@ -69,6 +72,7 @@ public class HomeActivity extends RuntimePermissionsActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final int REQUEST_PERMISSIONS = 20;
+    private boolean loadingTime = false;
 
     private static boolean doubleBackToExitPressedOnce;
     private boolean exitState = false;
@@ -89,6 +93,7 @@ public class HomeActivity extends RuntimePermissionsActivity
 
     private Cursor cursor;
     private int counter = 0;
+    private int count = 0;
     private Handler updateBarHandler;
     private ProgressDialog pDialog;
     private String version = "", latestVersion = "", link = "";
@@ -101,6 +106,8 @@ public class HomeActivity extends RuntimePermissionsActivity
     private TextView tvVersion;
     private TabLayout tlMenu;
     private PspPrinter printer;
+    private TextView tvRefresh;
+    private LinearLayout llsaldo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -279,7 +286,9 @@ public class HomeActivity extends RuntimePermissionsActivity
     }
 
     private void getTotalDeposit() {
-
+        loadingTime = true;
+        count++;
+        tvRefresh.setText(""+count);
         JSONObject jBody = new JSONObject();
         try {
             jBody.put("kode", "SD");
@@ -291,12 +300,13 @@ public class HomeActivity extends RuntimePermissionsActivity
         ApiVolley request = new ApiVolley(context, jBody, "GET", ServerURL.checkSaldo, new ApiVolley.VolleyCallback() {
             @Override
             public void onSuccess(String result) {
-
+                loadingTime = false;
                 try {
                     JSONObject response = new JSONObject(result);
                     String status = response.getJSONObject("metadata").getString("status");
-                    if(status.equals("200")){
+//                    String loading =
 
+                    if(status.equals("200")){
                         String total = response.getJSONObject("response").getString("total");
                          tvSaldo.setText("saldo: " + iv.ChangeToRupiahFormat(total));
                     }
@@ -311,6 +321,19 @@ public class HomeActivity extends RuntimePermissionsActivity
 
             }
         });
+
+        refresh(5000);
+    }
+
+    private void refresh(int i) {
+        final Handler handler = new Handler();
+        final Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                getTotalDeposit();
+            }
+        };
+        handler.postDelayed(runnable, i);
     }
 
     private void initUI() {
@@ -321,7 +344,8 @@ public class HomeActivity extends RuntimePermissionsActivity
         //tvUsername = (TextView) headerView.findViewById(R.id.tv_username);
 
         tvSaldo = (TextView) findViewById(R.id.tv_saldo);
-
+        tvRefresh = (TextView) findViewById(R.id.tv_refresh);
+        llsaldo = (LinearLayout) findViewById(R.id.llSaldo);
         btnNavHome = (Button) findViewById(R.id.btn_nav_home);
         btnNavTransaksi = (Button) findViewById(R.id.btn_nav_transaksi);
         btnNavHistory = (Button) findViewById(R.id.btn_nav_history);

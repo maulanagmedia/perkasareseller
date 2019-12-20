@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <LinearLayout
@@ -46,6 +47,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text=""
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/size_title1"
+                    android:id="@+id/tv_item1"
+                    android:ellipsize="none"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
                     android:gravity="center"
                     android:textColor="@color/color_black"
                     android:id="@+id/tv_item2"
@@ -58,12 +70,28 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text=""
-                    android:textStyle="bold"
                     android:gravity="center"
                     android:textColor="@color/color_black"
-                    android:textSize="@dimen/size_title1"
-                    android:id="@+id/tv_item1"
-                    android:ellipsize="none"/>
+                    android:id="@+id/tv_itemNo"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:textSize="10dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="test"
+                    android:gravity="right"
+                    android:textColor="@color/color_black"
+                    android:id="@+id/tv_jam"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:textSize="@dimen/size_title3"
+                    />
+
+
             </LinearLayout>
 
         </LinearLayout>
