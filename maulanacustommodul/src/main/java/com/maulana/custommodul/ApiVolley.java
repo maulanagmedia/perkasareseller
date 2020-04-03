@@ -193,7 +193,7 @@ public class ApiVolley {
 
         // retry when timeout
         stringRequest.setRetryPolicy(new DefaultRetryPolicy(
-                20*1000, -1,DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
+                30*1000, -1,DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
         ));
 
         stringRequest.setShouldCache(false);

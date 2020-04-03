@@ -108,7 +108,7 @@ public class MainHistory extends Fragment {
         btnRefresh = (Button) layout.findViewById(R.id.btn_refresh);
         tvTotal = (TextView) layout.findViewById(R.id.tv_total);
 
-        dateFrom = iv.sumDate(iv.getCurrentDate(FormatItem.formatDateDisplay), -1, FormatItem.formatDateDisplay) ;
+        dateFrom = iv.sumDate(iv.getCurrentDate(FormatItem.formatDateDisplay), 0    , FormatItem.formatDateDisplay) ;
         dateTo = iv.getCurrentDate(FormatItem.formatDateDisplay);
 
         edtTglDari.setText(dateFrom);

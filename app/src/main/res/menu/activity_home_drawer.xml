@@ -8,7 +8,7 @@
             android:id="@+id/nav_profile"
             android:icon="@drawable/ic_user_black"
             android:title="Profile"
-            android:visible="false"/>
+            android:visible="true"/>
         <item
             android:id="@+id/nav_tambah_akun"
             android:icon="@drawable/ic_user_black"

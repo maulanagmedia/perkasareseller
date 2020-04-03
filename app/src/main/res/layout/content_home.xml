@@ -32,6 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:text="refresh:"
+                android:visibility="gone"
                 android:textColor="@color/colorPrimary"
                 android:textSize="10sp" />
 
@@ -41,6 +42,8 @@
                 android:text="Saldo Tunai Rp 0 "
                 android:id="@+id/tv_saldo"
                 android:textSize="20sp"
+                android:layout_marginTop="@dimen/margin_small"
+                android:layout_marginBottom="@dimen/margin_small"
                 android:textColor="@color/color_white_pure" />
 
             <Button
@@ -52,6 +55,7 @@
                 android:background="@drawable/bg_button_white"
                 android:text="Top up Saldo Tunai"
                 android:id="@+id/btn_topup"
+                android:layout_marginBottom="@dimen/margin_small"
                 android:textColor="@color/color_red"
                 android:textSize="11sp"/>
         </LinearLayout>

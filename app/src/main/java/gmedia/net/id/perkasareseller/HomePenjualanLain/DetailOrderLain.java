@@ -49,6 +49,8 @@ import gmedia.net.id.perkasareseller.HomeActivity;
 import gmedia.net.id.perkasareseller.R;
 import gmedia.net.id.perkasareseller.Utils.ServerURL;
 
+import static gmedia.net.id.perkasareseller.HomePulsa.Service.ServiceHandler.intent;
+
 public class DetailOrderLain extends AppCompatActivity {
 
     private Context context;
@@ -276,7 +278,7 @@ public class DetailOrderLain extends AppCompatActivity {
         progressDialog.show();
 
         JSONObject jBody = new JSONObject();
-        String proses = isInquery && checkHarga ? "INQ" : "PAY";
+        final String proses = isInquery && checkHarga ? "INQ" : "PAY";
 
         try {
             jBody.put("id_produk", idProduk);
@@ -323,40 +325,37 @@ public class DetailOrderLain extends AppCompatActivity {
                     if(iv.parseNullInteger(status) == 200){
 
                         final String finalMessage = message;
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
 
-                                Toast.makeText(context, finalMessage, Toast.LENGTH_LONG).show();
-                                HomeActivity.stateFragment = 2;
-                                //onBackPressed();
-                                Intent intent = new Intent(context, HomeActivity.class);
-                                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                                startActivity(intent);
-                                finish();
-                            }
-                        });
-                        /*harga = response.getJSONObject("response").getJSONObject("data").getString("harga");
+                        Toast.makeText(context, finalMessage, Toast.LENGTH_LONG).show();
+                        HomeActivity.stateFragment = 2;
+                        //onBackPressed();
 
-                        jml =  response.getJSONObject("response").getJSONObject("data").getString("jml");
-                        //admin = response.getJSONObject("response").getJSONObject("data").getString("admin");
-                        admin = "0";
-                        //denda = response.getJSONObject("response").getJSONObject("data").getString("denda");
-                        denda = "0";
-                        periode = response.getJSONObject("response").getJSONObject("data").getString("periode");
-                        standMeter = response.getJSONObject("response").getJSONObject("data").getString("stand_meter");
+                        JSONObject jo = response.getJSONObject("response");
+                        String progresResult = jo.getString("proses");
+                        if(progresResult.equals("PAY")){
 
-                        sn = response.getJSONObject("response").getJSONObject("data").getString("sn");
-                        msisdn = response.getJSONObject("response").getJSONObject("data").getString("msisdn");
-                        namaPIC = response.getJSONObject("response").getJSONObject("data").getString("nama");
-                        golongan = response.getJSONObject("response").getJSONObject("data").getString("daya") + "/" + response.getJSONObject("response").getJSONObject("transaksi").getString("kwh");
+                            Intent intent = new Intent(context, HomeActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(intent);
+                            finish();
+                        }else{
 
-                        edtTotal.setText(iv.ChangeToCurrencyFormat(harga));
-                        edtNama.setText(namaPIC);
-                        edtSN.setText(sn);
-                        edtMsisdn.setText(msisdn);
-                        edtGolongan.setText(golongan);
-                        edtStandMeter.setText(standMeter);
+                            harga = response.getJSONObject("response").getString("harga_inq");
+                            standMeter = response.getJSONObject("response").getString("stand_meter");
+                            sn = response.getJSONObject("response").getString("sn");
+                            msisdn = response.getJSONObject("response").getString("msisdn");
+                            namaPIC = response.getJSONObject("response").getString("nama");
+                            golongan = response.getJSONObject("response").getString("golongan");
+
+                            edtTotal.setText(iv.ChangeToCurrencyFormat(harga));
+                            edtNama.setText(namaPIC);
+                            edtSN.setText(sn);
+                            edtMsisdn.setText(msisdn);
+                            edtGolongan.setText(golongan);
+                            edtStandMeter.setText(standMeter);
+                        }
+
+                        /*
 
                         if(!checkHarga){
 
@@ -565,17 +564,34 @@ public class DetailOrderLain extends AppCompatActivity {
 
                     }else{
 
-                        View.OnClickListener clickListener = new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
+                        if(proses.equals("PAY")){
 
-                                dialogBox.dismissDialog();
-                                doTransaksi(checkHarga);
-                            }
-                        };
+                            View.OnClickListener clickListener = new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
 
-                        if(!currentCounter.isEmpty()) dialogBox.showDialog(clickListener, "Ulangi Proses", message);
+                                    dialogBox.dismissDialog();
+                                    Intent intent = new Intent(context, HomeActivity.class);
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            };
 
+                            if(!currentCounter.isEmpty()) dialogBox.showDialog(clickListener, "Terjadi kesalahan, cek status transaksi", message);
+                        }else{
+
+                            View.OnClickListener clickListener = new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+
+                                    dialogBox.dismissDialog();
+                                    doTransaksi(checkHarga);
+                                }
+                            };
+
+                            if(!currentCounter.isEmpty()) dialogBox.showDialog(clickListener, "Ulangi Proses", message);
+                        }
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
