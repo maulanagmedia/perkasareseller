@@ -14,6 +14,7 @@ public class ServerURL {
     //private static final String baseURL = "http://api.putmasaripratama.co.id/apiresv1/";
 
     public static final String login = baseURL + "Authentication/";
+    public static final String getMenu = baseURL + "Authentication/get_menu/";
     public static final String register = baseURL + "Authentication/register/";
     public static final String getOTP = baseURL + "Authentication/kirim_otp/";
     public static final String resetPassword = baseURL + "Auth/reset_password/";

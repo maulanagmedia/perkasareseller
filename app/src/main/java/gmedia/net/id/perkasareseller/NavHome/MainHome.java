@@ -9,11 +9,11 @@ import android.graphics.Point;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.Display;
 import android.view.LayoutInflater;
@@ -22,6 +22,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -173,6 +174,30 @@ public class MainHome extends Fragment implements ViewPager.OnPageChangeListener
         llLine2.setLayoutParams(l1LayoutParams2);
         llLine3.setLayoutParams(l1LayoutParams3);
         llLine4.setLayoutParams(l1LayoutParams4);
+
+        int menuWidth = 0;
+        menuWidth = (dimension[0] / 4) - iv.dpToPx(context, 4);
+
+        GridLayout.LayoutParams lp1 = (GridLayout.LayoutParams) llMkios.getLayoutParams();
+        lp1.width = menuWidth;
+        llMkios.setLayoutParams(lp1);
+
+        GridLayout.LayoutParams lp2 = (GridLayout.LayoutParams) llBulk.getLayoutParams();
+        lp2.width = menuWidth;
+        llBulk.setLayoutParams(lp2);
+
+        GridLayout.LayoutParams lp3 = (GridLayout.LayoutParams) llTcash.getLayoutParams();
+        lp3.width = menuWidth;
+        llTcash.setLayoutParams(lp3);
+
+        GridLayout.LayoutParams lp4 = (GridLayout.LayoutParams) llBeliPerdana.getLayoutParams();
+        lp4.width = menuWidth;
+        llBeliPerdana.setLayoutParams(lp4);
+
+        llMkios.setVisibility(View.GONE);
+        llBulk.setVisibility(View.GONE);
+        llTcash.setVisibility(View.GONE);
+        llBeliPerdana.setVisibility(View.GONE);
 
         //getListHeaderSlider();
 
@@ -823,6 +848,7 @@ public class MainHome extends Fragment implements ViewPager.OnPageChangeListener
                 }
 
                 adapter.notifyDataSetChanged();
+                getMenu();
             }
 
             @Override
@@ -836,6 +862,82 @@ public class MainHome extends Fragment implements ViewPager.OnPageChangeListener
 
                         dialogBox.dismissDialog();
                         initData();
+                    }
+                };
+
+                dialogBox.showDialog(clickListener, "Ulangi Proses", result);
+
+                getMenu();
+            }
+        });
+    }
+
+    private void getMenu() {
+
+        dialogBox.showDialog(true);
+        ApiVolley request = new ApiVolley(context, new JSONObject(), "GET", ServerURL.getMenu, new ApiVolley.VolleyCallback() {
+            @Override
+            public void onSuccess(String result) {
+
+                dialogBox.dismissDialog();
+                String message = "Terjadi kesalahan saat memuat data, mohon coba kembali";
+                try {
+
+                    JSONObject response = new JSONObject(result);
+                    String status = response.getJSONObject("metadata").getString("status");
+                    message = response.getJSONObject("metadata").getString("message");
+                    if(status.equals("200")){
+
+                        JSONArray jsonArray = response.getJSONArray("response");
+                        for(int i = 0; i < jsonArray.length(); i ++){
+                            JSONObject jo = jsonArray.getJSONObject(i);
+                            String namaMenu = jo.getString("menu");
+                            if(namaMenu.equals("mkios")){
+
+                                llMkios.setVisibility(View.VISIBLE);
+                            }else if(namaMenu.equals("bulk")){
+
+                                llBulk.setVisibility(View.VISIBLE);
+                            }
+                            else if(namaMenu.equals("tcash")){
+
+                                llTcash.setVisibility(View.VISIBLE);
+                            }
+                            else if(namaMenu.equals("perdana")){
+
+                                llBeliPerdana.setVisibility(View.VISIBLE);
+                            }
+                        }
+
+                    }else{
+                        //if(start == 0) DialogBox.showDialog(context, 3, message);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+
+                    View.OnClickListener clickListener = new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+
+                            dialogBox.dismissDialog();
+                            getMenu();
+                        }
+                    };
+
+                    dialogBox.showDialog(clickListener, "Ulangi Proses", message);
+                }
+            }
+
+            @Override
+            public void onError(String result) {
+
+                dialogBox.dismissDialog();
+                View.OnClickListener clickListener = new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        dialogBox.dismissDialog();
+                        getMenu();
                     }
                 };
 

@@ -35,7 +35,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/color_white"
-                android:text="Top up saldo PSP semakin mudah"
+                android:text="Top up saldo Perkasa semakin mudah"
                 android:textSize="@dimen/default_title"/>
 
             <TextView
@@ -99,7 +99,7 @@
                     android:layout_marginTop="@dimen/margin_default"
                     android:textColor="@color/color_black"
                     android:textSize="@dimen/default_font"
-                    android:text="4. Tunggu hingga sales PSP mendatangi anda"/>
+                    android:text="4. Tunggu hingga sales Perkasa mendatangi anda"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -107,7 +107,7 @@
                     android:layout_marginTop="@dimen/margin_default"
                     android:textColor="@color/color_black"
                     android:textSize="@dimen/default_font"
-                    android:text="5. Bayar kepada sales PSP sebesar total harga yang muncul pada bagian paling bawah halaman ini"/>
+                    android:text="5. Bayar kepada sales Perkasa sebesar total harga yang muncul pada bagian paling bawah halaman ini"/>
 
                 <TextView
                     android:layout_width="match_parent"
@@ -115,7 +115,7 @@
                     android:layout_marginTop="@dimen/margin_default"
                     android:textColor="@color/color_black"
                     android:textSize="@dimen/default_font"
-                    android:text="6. Begitu Sales PSP menyetujui top up anda, Saldo Tunai akan bertambah"/>
+                    android:text="6. Begitu Sales Perkasa menyetujui top up anda, Saldo Tunai akan bertambah"/>
 
             </LinearLayout>
 

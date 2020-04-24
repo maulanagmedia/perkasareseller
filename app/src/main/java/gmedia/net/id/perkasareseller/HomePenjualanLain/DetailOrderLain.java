@@ -4,14 +4,12 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
-import android.os.CountDownTimer;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
@@ -22,15 +20,11 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.leonardus.irfan.bluetoothprinter.Model.Item;
-import com.leonardus.irfan.bluetoothprinter.Model.Transaksi;
 import com.leonardus.irfan.bluetoothprinter.PspPrinter;
 import com.maulana.custommodul.ApiVolley;
 import com.maulana.custommodul.CustomView.DialogBox;
-import com.maulana.custommodul.FormatItem;
 import com.maulana.custommodul.ItemValidation;
 import com.maulana.custommodul.OptionItem;
 import com.maulana.custommodul.SessionManager;
@@ -40,7 +34,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -48,8 +41,6 @@ import java.util.TimerTask;
 import gmedia.net.id.perkasareseller.HomeActivity;
 import gmedia.net.id.perkasareseller.R;
 import gmedia.net.id.perkasareseller.Utils.ServerURL;
-
-import static gmedia.net.id.perkasareseller.HomePulsa.Service.ServiceHandler.intent;
 
 public class DetailOrderLain extends AppCompatActivity {
 
