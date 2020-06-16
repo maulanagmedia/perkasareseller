@@ -164,6 +164,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text=""
+                android:gravity="right"
                 android:textColor="@color/color_black"
                 android:textSize="@dimen/size_title2"
                 android:id="@+id/tv_item4"/>
@@ -198,6 +199,38 @@
                     android:textColor="@color/color_black"
                     android:textSize="@dimen/size_title2"
                     android:id="@+id/tv_item5"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/default_line"
+                    android:background="@color/color_black"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/ll_keterangan">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Keteraangan"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Caption"
+                    android:singleLine="true"
+                    android:textColor="@color/color_black"
+                    android:ellipsize="end"
+                    android:textSize="@dimen/size_title3"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:gravity="right"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/size_title2"
+                    android:id="@+id/tv_item6"/>
 
                 <View
                     android:layout_width="match_parent"

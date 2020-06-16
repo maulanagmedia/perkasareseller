@@ -17,8 +17,8 @@ public class ServerURL {
     public static final String getMenu = baseURL + "Authentication/get_menu/";
     public static final String register = baseURL + "Authentication/register/";
     public static final String getOTP = baseURL + "Authentication/kirim_otp/";
-    public static final String resetPassword = baseURL + "Auth/reset_password/";
-    public static final String changePassword = baseURL + "Auth/change_password/";
+    public static final String resetPassword = baseURL + "Authentication/reset_password/";
+    public static final String changePassword = baseURL + "Authentication/change_password/";
     public static final String getPromosi = baseURL + "Promo/";
     public static final String uploadFileURL = baseURL + "chat/send_file/";
 

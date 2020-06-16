@@ -2,18 +2,27 @@ package gmedia.net.id.perkasareseller.NavTransaksi;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.RadioGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.maulana.custommodul.ApiVolley;
 import com.maulana.custommodul.CustomItem;
@@ -34,9 +43,13 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import gmedia.net.id.perkasareseller.HomeActivity;
 import gmedia.net.id.perkasareseller.NavTransaksi.Adapter.ListTransaksiAdapter;
 import gmedia.net.id.perkasareseller.R;
 import gmedia.net.id.perkasareseller.Utils.ServerURL;
+
+import static android.content.Context.CLIPBOARD_SERVICE;
+import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 
 public class MainTransaksi extends Fragment {
 
@@ -182,6 +195,80 @@ public class MainTransaksi extends Fragment {
                 getData();
             }
         });
+
+        lvTransaksi.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                CustomItem item = (CustomItem) parent.getItemAtPosition(position);
+                String nominal = item.getItem5();
+                String rekening = item.getItem14();
+                String atasnama = item.getItem16();
+                String bank = item.getItem15();
+                String expiredDate = item.getItem13();
+                showResultDialog(nominal, rekening, bank, atasnama, expiredDate);
+            }
+        });
+    }
+
+    private void showResultDialog(final String nominal, final String rekening, final String bank, final String an, final String expiration){
+
+        final android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(context);
+        LayoutInflater inflater = (LayoutInflater) ((Activity)context).getSystemService(LAYOUT_INFLATER_SERVICE);
+        View viewDialog = inflater.inflate(R.layout.dialog_hasil_topup, null);
+        builder.setView(viewDialog);
+        builder.setCancelable(false);
+
+        final RadioGroup rgCaraBayar = (RadioGroup) viewDialog.findViewById(R.id.rg_cara_bayar);
+        final TextView tvNominal = (TextView) viewDialog.findViewById(R.id.tv_nominal);
+        final TextView tvRekening = (TextView) viewDialog.findViewById(R.id.tv_rekening);
+        final TextView tvBank = (TextView) viewDialog.findViewById(R.id.tv_bank);
+        final TextView tvAn = (TextView) viewDialog.findViewById(R.id.tv_nama);
+        final TextView tvExpiration = (TextView) viewDialog.findViewById(R.id.tv_expiration);
+        final ImageView ivNominal = (ImageView) viewDialog.findViewById(R.id.iv_nominal);
+        final ImageView ivRekening = (ImageView) viewDialog.findViewById(R.id.iv_rekening);
+        final Button btnOk = (Button) viewDialog.findViewById(R.id.btn_ok);
+
+        final android.app.AlertDialog alert = builder.create();
+        alert.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+
+        tvNominal.setText(iv.ChangeToCurrencyFormat(nominal));
+        tvRekening.setText(rekening);
+        tvBank.setText(bank);
+        tvAn.setText(an);
+        tvExpiration.setText(Html.fromHtml("Harap lakukan transfer sebelum <b>"+ iv.ChangeFormatDateString(expiration, FormatItem.formatTimestamp, FormatItem.formatDateTimeDisplay) + "</b>"));
+
+        ivNominal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                ClipboardManager clipboard = (ClipboardManager) ((Activity)context).getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("nominal", tvNominal.getText().toString().replaceAll("[,.]", ""));
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(context, "Nominal disimpan di clipboard", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        ivRekening.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                ClipboardManager clipboard = (ClipboardManager) ((Activity)context).getSystemService(CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("Rekening", tvRekening.getText().toString());
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(context, "Rekening disimpan di clipboard", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        btnOk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view2) {
+
+                if(alert != null) alert.dismiss();
+            }
+        });
+
+        alert.show();
     }
 
     private void getData() {
@@ -224,6 +311,9 @@ public class MainTransaksi extends Fragment {
                                             jo.getString("kode_lokasi"),
                                             (jo.getString("rekening").isEmpty() ? "" : jo.getString("rekening")+ " ("+ jo.getString("bank")+") a/n "+ jo.getString("atasnama"))
                                             ,jo.getString("expired_at")
+                                            ,jo.getString("rekening")
+                                            ,jo.getString("bank")
+                                            ,jo.getString("atasnama")
 
                                     ));
                         }

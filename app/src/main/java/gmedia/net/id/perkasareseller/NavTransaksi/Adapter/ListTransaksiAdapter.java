@@ -35,8 +35,8 @@ public class ListTransaksiAdapter extends ArrayAdapter{
     }
 
     private static class ViewHolder {
-        private TextView tvItem1, tvItem2, tvItem3, tvItem4, tvItem5, tvStatus, tvNo, tvJam;
-        private LinearLayout llDetail, llExpiration;
+        private TextView tvItem1, tvItem2, tvItem3, tvItem4, tvItem5, tvItem6, tvStatus, tvNo, tvJam;
+        private LinearLayout llDetail, llExpiration, llKeterangan;
         private ImageView ivCollapse;
     }
 
@@ -59,11 +59,13 @@ public class ListTransaksiAdapter extends ArrayAdapter{
             holder.tvItem3 = (TextView) convertView.findViewById(R.id.tv_item3);
             holder.tvItem4 = (TextView) convertView.findViewById(R.id.tv_item4);
             holder.tvItem5 = (TextView) convertView.findViewById(R.id.tv_item5);
+            holder.tvItem6 = (TextView) convertView.findViewById(R.id.tv_item6);
             holder.tvStatus = (TextView) convertView.findViewById(R.id.tv_status);
             holder.tvJam = (TextView) convertView.findViewById(R.id.tv_jam);
             holder.tvNo = (TextView) convertView.findViewById(R.id.tv_itemNo);
             holder.ivCollapse = (ImageView) convertView.findViewById(R.id.iv_collapse);
             holder.llDetail = (LinearLayout) convertView.findViewById(R.id.ll_detail);
+            holder.llKeterangan = (LinearLayout) convertView.findViewById(R.id.ll_keterangan);
             holder.llExpiration = (LinearLayout) convertView.findViewById(R.id.ll_expiration);
 
             convertView.setTag(holder);
@@ -110,11 +112,19 @@ public class ListTransaksiAdapter extends ArrayAdapter{
             holder.tvItem4.setText(itemSelected.getItem9());
         }else{
             holder.llExpiration.setVisibility(View.VISIBLE);
-            holder.tvItem5.setText(iv.ChangeFormatDateString(itemSelected.getItem8(), FormatItem.formatTimestamp, FormatItem.formatDateTimeDisplay));
+            holder.tvItem5.setText(iv.ChangeFormatDateString(itemSelected.getItem13(), FormatItem.formatTimestamp, FormatItem.formatDateTimeDisplay));
 
         }
         holder.tvStatus.setText(itemSelected.getItem9());
 
+        if(itemSelected.getItem12().equals("")){
+
+            holder.llKeterangan.setVisibility(View.GONE);
+        }else{
+
+            holder.llKeterangan.setVisibility(View.VISIBLE);
+            holder.tvItem6.setText(itemSelected.getItem12());
+        }
         final ViewHolder finalHolder = holder;
         /*holder.ivCollapse.setOnClickListener(new View.OnClickListener() {
             @Override

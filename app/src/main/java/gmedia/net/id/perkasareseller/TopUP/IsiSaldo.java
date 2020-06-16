@@ -737,8 +737,8 @@ public class IsiSaldo extends AppCompatActivity {
                 }else if(rgCaraBayar.getCheckedRadioButtonId() == R.id.rb_transfer){
 
                     crBayar = "3";
-                    dummyDialog();
-                    return;
+                    /*dummyDialog();
+                    return;*/
                 }else if(rgCaraBayar.getCheckedRadioButtonId() == R.id.rb_tcash){
 
                     dummyDialog();
