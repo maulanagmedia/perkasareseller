@@ -7,8 +7,8 @@ android {
         applicationId 'gmedia.net.id.perkasareseller'
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 28
-        versionName "2.17.0"
+        versionCode 29
+        versionName "2.18.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {

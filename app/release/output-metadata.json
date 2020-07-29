@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "gmedia.net.id.perkasareseller",
+  "variantName": "release",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "properties": [],
+      "versionCode": 29,
+      "versionName": "2.18.0",
+      "enabled": true,
+      "outputFile": "app-release.apk"
+    }
+  ]
+}

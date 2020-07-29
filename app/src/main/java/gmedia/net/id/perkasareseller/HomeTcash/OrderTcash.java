@@ -79,7 +79,6 @@ public class OrderTcash extends AppCompatActivity {
     private String selectedBank = "";
     private ScrollView svCountainer;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

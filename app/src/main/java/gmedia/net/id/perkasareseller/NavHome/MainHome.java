@@ -55,6 +55,7 @@ import gmedia.net.id.perkasareseller.HomeInfoStok.ActInfoStok;
 import gmedia.net.id.perkasareseller.HomeInfoStok.DetailInfoStok;
 import gmedia.net.id.perkasareseller.HomeJualPerdana.DetailJualPerdana;
 import gmedia.net.id.perkasareseller.HomeMkios.OrderMKIOS;
+import gmedia.net.id.perkasareseller.HomeNGRS.OrderNGRS;
 import gmedia.net.id.perkasareseller.HomePenjualanLain.Adapter.KategoriListAdapter;
 import gmedia.net.id.perkasareseller.HomePenjualanLain.OrderLain;
 import gmedia.net.id.perkasareseller.HomePreorderPerdana.ListBarangPreorder;
@@ -84,7 +85,7 @@ public class MainHome extends Fragment implements ViewPager.OnPageChangeListener
     private Timer timer;
     private LinearLayout llMkios, llBulk, llTcash, llTokenListrik
             , llPulsa, llInfoStok, llStokMkios, llStokTcash, llStokPPOB
-            , llBukuPintar, llBeliPerdana, llPreorderPerdana, llJualPerdana;
+            , llBukuPintar, llBeliPerdana, llPreorderPerdana, llJualPerdana, llLinkAjaNgrs;
     private String TAG = "HOME";
     private String pin = "", flagPin = "";
     private DialogBox dialogBox;
@@ -143,6 +144,7 @@ public class MainHome extends Fragment implements ViewPager.OnPageChangeListener
         llBeliPerdana = (LinearLayout) layout.findViewById(R.id.ll_perdana);
         llPreorderPerdana = (LinearLayout) layout.findViewById(R.id.ll_preorder_perdana);
         llJualPerdana = (LinearLayout) layout.findViewById(R.id.ll_jual_perdana);
+        llLinkAjaNgrs = (LinearLayout) layout.findViewById(R.id.ll_linkaja_ngrs);
         rlHeaderSlide = (RelativeLayout) layout.findViewById(R.id.rl_header_slide);
 
         rvKategori = (RecyclerView) layout.findViewById(R.id.rv_kategori);
@@ -175,7 +177,7 @@ public class MainHome extends Fragment implements ViewPager.OnPageChangeListener
         llLine3.setLayoutParams(l1LayoutParams3);
         llLine4.setLayoutParams(l1LayoutParams4);
 
-        int menuWidth = 0;
+        /*int menuWidth = 0;
         menuWidth = (dimension[0] / 4) - iv.dpToPx(context, 4);
 
         GridLayout.LayoutParams lp1 = (GridLayout.LayoutParams) llMkios.getLayoutParams();
@@ -192,12 +194,13 @@ public class MainHome extends Fragment implements ViewPager.OnPageChangeListener
 
         GridLayout.LayoutParams lp4 = (GridLayout.LayoutParams) llBeliPerdana.getLayoutParams();
         lp4.width = menuWidth;
-        llBeliPerdana.setLayoutParams(lp4);
+        llBeliPerdana.setLayoutParams(lp4);*/
 
         llMkios.setVisibility(View.GONE);
         llBulk.setVisibility(View.GONE);
         llTcash.setVisibility(View.GONE);
         llBeliPerdana.setVisibility(View.GONE);
+        llLinkAjaNgrs.setVisibility(View.GONE);
 
         //getListHeaderSlider();
 
@@ -249,6 +252,16 @@ public class MainHome extends Fragment implements ViewPager.OnPageChangeListener
             public void onClick(View view) {
 
                 Intent intent = new Intent(context, OrderTcash.class);
+                startActivity(intent);
+                ((Activity) context).overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up);
+            }
+        });
+
+        llLinkAjaNgrs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(context, OrderNGRS.class);
                 startActivity(intent);
                 ((Activity) context).overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up);
             }
@@ -906,6 +919,11 @@ public class MainHome extends Fragment implements ViewPager.OnPageChangeListener
                             else if(namaMenu.equals("perdana")){
 
                                 llBeliPerdana.setVisibility(View.VISIBLE);
+                            }
+
+                            else if(namaMenu.equals("ngrs")){
+
+                                llLinkAjaNgrs.setVisibility(View.VISIBLE);
                             }
                         }
 

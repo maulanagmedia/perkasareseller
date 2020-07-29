@@ -11,8 +11,10 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <!--<uses-permission android:name="android.permission.RECEIVE_SMS" />
-    <uses-permission android:name="android.permission.READ_SMS" />-->
+    <!--
+<uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    -->
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -28,15 +30,16 @@
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:networkSecurityConfig="@xml/network_security_config"
-        android:theme="@style/AppTheme">
-
-        <activity android:name="gmedia.net.id.perkasareseller.DetailSharePrintout"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".HomeNGRS.OrderNGRS"></activity>
+        <activity
+            android:name=".DetailSharePrintout"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -49,7 +52,7 @@
         </provider>
 
         <activity
-            android:name="gmedia.net.id.perkasareseller.SplashScreen"
+            android:name=".SplashScreen"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen">
             <intent-filter>
@@ -63,12 +66,12 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity> <!-- Service -->
-        <service android:name="gmedia.net.id.perkasareseller.NotificationUtil.MyFirebaseInstanceIDService">
+        <service android:name=".NotificationUtil.MyFirebaseInstanceIDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
-        <service android:name="gmedia.net.id.perkasareseller.NotificationUtil.MyFirebaseMessagingService">
+        <service android:name=".NotificationUtil.MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
@@ -81,24 +84,24 @@
             android:name="com.google.firebase.messaging.default_notification_color"
             android:resource="@color/color_notif" />
 
-        <service android:name="gmedia.net.id.perkasareseller.NotificationUtil.TokenGetter" /> <!-- Service -->
+        <service android:name=".NotificationUtil.TokenGetter" /> <!-- Service -->
         <activity
-            android:name="gmedia.net.id.perkasareseller.MainActivity"
+            android:name=".MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="gmedia.net.id.perkasareseller.LoginScreen"
+            android:name=".LoginScreen"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen" />
         <activity
-            android:name="gmedia.net.id.perkasareseller.TabActivity"
+            android:name=".TabActivity"
             android:label="@string/title_activity_tab"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="gmedia.net.id.perkasareseller.TopUP.IsiSaldo"
+            android:name=".TopUP.IsiSaldo"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="gmedia.net.id.perkasareseller.HomeActivity"
+            android:name=".HomeActivity"
             android:label="@string/title_activity_home"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
@@ -109,20 +112,20 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="gmedia.net.id.perkasareseller.HomeMkios.OrderMKIOS"
+            android:name=".HomeMkios.OrderMKIOS"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="gmedia.net.id.perkasareseller.HomeBulk.OrderBulk"
+            android:name=".HomeBulk.OrderBulk"
             android:screenOrientation="portrait" />
         <activity
-            android:name="gmedia.net.id.perkasareseller.HomeTcash.OrderTcash"
+            android:name=".HomeTcash.OrderTcash"
             android:screenOrientation="portrait" />
         <activity
-            android:name="gmedia.net.id.perkasareseller.HomeTokenListrik.OrderTokenListrik"
+            android:name=".HomeTokenListrik.OrderTokenListrik"
             android:screenOrientation="portrait" />
         <activity
-            android:name="gmedia.net.id.perkasareseller.CSChat.ChatSales"
+            android:name=".CSChat.ChatSales"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="ACT_CHAT" />
@@ -131,12 +134,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="gmedia.net.id.perkasareseller.SideProfile.ProfileActivity"
+            android:name=".SideProfile.ProfileActivity"
             android:screenOrientation="portrait" />
-        <activity android:name="gmedia.net.id.perkasareseller.HomePulsa.OrderPulsa" />
+        <activity android:name=".HomePulsa.OrderPulsa" />
 
         <service
-            android:name="gmedia.net.id.perkasareseller.HomePulsa.Service.USSDService"
+            android:name=".HomePulsa.Service.USSDService"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />
@@ -146,43 +149,42 @@
                 android:name="android.accessibilityservice"
                 android:resource="@xml/config_service" />
         </service>
-
         <service
-            android:name="gmedia.net.id.perkasareseller.HomePulsa.Service.NotificationService"
+            android:name=".HomePulsa.Service.NotificationService"
             android:label="@string/app_name"
             android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
             <intent-filter>
                 <action android:name="android.service.notification.NotificationListenerService" />
             </intent-filter>
         </service>
-
-        <!--<receiver android:name=".HomePulsa.Service.SmsReceiverService">
+        <!--
+<receiver android:name=".HomePulsa.Service.SmsReceiverService">
             <intent-filter>
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
-        </receiver>-->
-
-        <activity android:name="gmedia.net.id.perkasareseller.DepositActivity">
+        </receiver>
+        -->
+        <activity android:name=".DepositActivity">
             <intent-filter>
                 <action android:name="ACT_DEPOSIT" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name="gmedia.net.id.perkasareseller.PriceList.PricelistActivity" />
-        <activity android:name="gmedia.net.id.perkasareseller.PengaturanPin.UbahPinActivity" />
-        <activity android:name="gmedia.net.id.perkasareseller.NavPromo.DetailPromo" />
+        <activity android:name=".PriceList.PricelistActivity" />
+        <activity android:name=".PengaturanPin.UbahPinActivity" />
+        <activity android:name=".NavPromo.DetailPromo" />
         <activity
-            android:name="gmedia.net.id.perkasareseller.HomeInfoStok.ActInfoStok"
+            android:name=".HomeInfoStok.ActInfoStok"
             android:screenOrientation="portrait" />
         <activity
-            android:name="gmedia.net.id.perkasareseller.HomeInfoStok.DetailInfoStok"
+            android:name=".HomeInfoStok.DetailInfoStok"
             android:screenOrientation="portrait" />
         <activity
-            android:name="gmedia.net.id.perkasareseller.SideInfoPSP.InformasiPSP"
+            android:name=".SideInfoPSP.InformasiPSP"
             android:screenOrientation="portrait" />
         <activity
-            android:name="gmedia.net.id.perkasareseller.RegisterActivity"
+            android:name=".RegisterActivity"
             android:screenOrientation="portrait" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -197,51 +199,51 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name="gmedia.net.id.perkasareseller.MapsActivity"
+            android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name="gmedia.net.id.perkasareseller.SideProfile.MapsOutlet" />
+        <activity android:name=".SideProfile.MapsOutlet" />
         <activity
-            android:name="gmedia.net.id.perkasareseller.SideChangePassword.ChangePassword"
+            android:name=".SideChangePassword.ChangePassword"
             android:screenOrientation="portrait" />
         <activity
-            android:name="gmedia.net.id.perkasareseller.Register.OtpRegisterActivity"
+            android:name=".Register.OtpRegisterActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="gmedia.net.id.perkasareseller.SideChangePassword.OtpChangePassword"
+            android:name=".SideChangePassword.OtpChangePassword"
             android:screenOrientation="portrait" />
         <activity
-            android:name="gmedia.net.id.perkasareseller.ResetActivity"
+            android:name=".ResetActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="gmedia.net.id.perkasareseller.Reset.OtpResetActivity"
+            android:name=".Reset.OtpResetActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="gmedia.net.id.perkasareseller.HomeBukuPintar.BukuPintar"
+            android:name=".HomeBukuPintar.BukuPintar"
             android:screenOrientation="portrait" />
         <activity
-            android:name="gmedia.net.id.perkasareseller.HomeBeliPerdana.ListBarangPerdana"
+            android:name=".HomeBeliPerdana.ListBarangPerdana"
             android:screenOrientation="portrait" />
         <activity
-            android:name="gmedia.net.id.perkasareseller.HomePreorderPerdana.ListBarangPreorder"
+            android:name=".HomePreorderPerdana.ListBarangPreorder"
             android:screenOrientation="portrait" />
         <activity
-            android:name="gmedia.net.id.perkasareseller.HomeBeliPerdana.DetailBarangPerdana"
+            android:name=".HomeBeliPerdana.DetailBarangPerdana"
             android:screenOrientation="portrait" />
         <activity
-            android:name="gmedia.net.id.perkasareseller.HomeBeliPerdana.DetailKeranjangPerdana"
+            android:name=".HomeBeliPerdana.DetailKeranjangPerdana"
             android:screenOrientation="portrait" />
         <activity
-            android:name="gmedia.net.id.perkasareseller.HomeJualPerdana.DetailJualPerdana"
+            android:name=".HomeJualPerdana.DetailJualPerdana"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.journeyapps.barcodescanner.CaptureActivity"
             android:screenOrientation="fullSensor"
             tools:replace="screenOrientation" />
         <activity
-            android:name="gmedia.net.id.perkasareseller.HomePenjualanLain.OrderLain"
+            android:name=".HomePenjualanLain.OrderLain"
             android:screenOrientation="portrait" />
         <activity
-            android:name="gmedia.net.id.perkasareseller.HomePenjualanLain.DetailOrderLain"
+            android:name=".HomePenjualanLain.DetailOrderLain"
             android:screenOrientation="portrait" />
     </application>
 

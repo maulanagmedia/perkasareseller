@@ -43,6 +43,7 @@ public class ServerURL {
     public static final String beliMkios = baseURL + "Mkios/beli_mkios/";
     public static final String beliBulk = baseURL + "Mkios/beli_bulk/";
     public static final String beliTcash = baseURL + "Mkios/beli_tcash/";
+    public static final String beliNGRS = baseURL + "Mkios/beli_ngrs/";
     public static final String beliSaldoTunai= baseURL + "Mkios/beli_deposit/";
     public static final String getHarga = baseURL + "mkios/get_harga/";
     public static final String viewTransaksi = baseURL + "Mkios/view_transaksi/";
