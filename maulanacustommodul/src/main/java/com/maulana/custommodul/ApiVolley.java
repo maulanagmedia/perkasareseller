@@ -197,8 +197,8 @@ public class ApiVolley {
         ));
 
         stringRequest.setShouldCache(false);
-        requestQueue.add(stringRequest);
         requestQueue.getCache().clear();
+        requestQueue.add(stringRequest);
 
     }
 
@@ -220,7 +220,7 @@ public class ApiVolley {
                             hostname.equalsIgnoreCase("settings.crashlytics.com") ||
                             hostname.equalsIgnoreCase("clients4.google.com") ||
                             hostname.equalsIgnoreCase("www.facebook.com") ||
-                            hostname.equalsIgnoreCase("www.instagram.com") ||
+                            hostname.equalsIgnoreCase("myperkasa.com") ||
                             hostname.equalsIgnoreCase("lh1.googleusercontent.com") ||
                             hostname.equalsIgnoreCase("lh2.googleusercontent.com") ||
                             hostname.equalsIgnoreCase("lh3.googleusercontent.com") ||

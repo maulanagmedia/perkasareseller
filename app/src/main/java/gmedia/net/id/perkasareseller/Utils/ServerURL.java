@@ -6,7 +6,7 @@ package gmedia.net.id.perkasareseller.Utils;
 
 public class ServerURL {
 
-    private static final String baseURL = "http://myperkasa.com/api/reseller/";
+    private static final String baseURL = "https://myperkasa.com/api/reseller/";
     //private static final String baseURL = "https://192.168.20.34:8062/";
 
     //private static final String baseURL = "http://119.2.53.122/mobilesalesforce/apiresv1/";

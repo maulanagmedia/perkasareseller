@@ -70,28 +70,28 @@ public class HomeActivity extends RuntimePermissionsActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private static final int REQUEST_PERMISSIONS = 20;
-    private boolean loadingTime = false;
+    private static boolean loadingTime = false;
 
     private static boolean doubleBackToExitPressedOnce;
     private boolean exitState = false;
     private int timerClose = 2000;
 
-    private SessionManager session;
-    private ItemValidation iv = new ItemValidation();
+    private static SessionManager session;
+    private static ItemValidation iv = new ItemValidation();
     private Button btnNavHome, btnNavTransaksi, btnNavHistory, btnNavPromo;
     //private ImageView ivMenu;
     private int state = 0;
     private Button btnTopup;
     private ImageView ivLogo;
     private TextView tvNamaOutlet, tvAlmatOutlet;
-    private Context context;
-    private TextView tvSaldo;
+    public static Context context;
+    private static TextView tvSaldo;
     public static int stateFragment = 0;
     public static List<CustomItem> listContact;
 
     private Cursor cursor;
     private int counter = 0;
-    private int count = 0;
+    private static int count = 0;
     private Handler updateBarHandler;
     private ProgressDialog pDialog;
     private String version = "", latestVersion = "", link = "";
@@ -104,8 +104,9 @@ public class HomeActivity extends RuntimePermissionsActivity
     private TextView tvVersion;
     private TabLayout tlMenu;
     private PspPrinter printer;
-    private TextView tvRefresh;
+    private static TextView tvRefresh;
     private LinearLayout llsaldo;
+    public static boolean isActive = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,6 +116,7 @@ public class HomeActivity extends RuntimePermissionsActivity
         context = this;
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        isActive = true;
 
         printer = new PspPrinter(context);
         printer.startService();
@@ -189,6 +191,7 @@ public class HomeActivity extends RuntimePermissionsActivity
         }
 
         OrderPulsa.isActive = false;
+        isActive = true;
 
         /*isAccessGranted =  isAccessibilityEnabled(context.getPackageName() + "/" + context.getPackageName() + ".HomePulsa.Service.USSDService");
         if(isAccessGranted){
@@ -241,7 +244,7 @@ public class HomeActivity extends RuntimePermissionsActivity
         //tvSaldo.setText("Nomor Anda " + session.getUsername());
         getTotalDeposit();
 
-        //checkVersion();
+        checkVersion();
     }
 
     public boolean isAccessibilityEnabled(String id){
@@ -283,7 +286,7 @@ public class HomeActivity extends RuntimePermissionsActivity
         return accessibilityFound;
     }
 
-    private void getTotalDeposit() {
+    public static void getTotalDeposit() {
         loadingTime = true;
         count++;
         tvRefresh.setText(""+count);
@@ -320,7 +323,7 @@ public class HomeActivity extends RuntimePermissionsActivity
             }
         });
 
-        refresh(5000);
+        //refresh(5000);
     }
 
     private void refresh(int i) {
@@ -903,5 +906,23 @@ public class HomeActivity extends RuntimePermissionsActivity
                 .replace(R.id.fl_container, fragment, fragment.getClass().getSimpleName())
                 .addToBackStack(null)
                 .commit();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        isActive = true;
+    }
+
+    @Override
+    protected void onPause() {
+        isActive = false;
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        isActive = false;
+        super.onStop();
     }
 }

@@ -4,6 +4,7 @@ package gmedia.net.id.perkasareseller.NotificationUtil;
  * Created by Shin on 2/17/2017.
  */
 
+import android.app.Activity;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -69,11 +70,13 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                     typeContent = 3;
                 }else if(extra.get(key).trim().toUpperCase().equals("HOME")){
                     typeContent = 4;
+                }else if(extra.get(key).trim().toUpperCase().equals("TOPUP")){
+                    typeContent = 5;
                 }
             }
         }
 
-        if(typeContent != 9){
+        if(typeContent != 5){
             switch (typeContent){
                 case 1:
                     intent = new Intent(this, HomeActivity.class);
@@ -124,6 +127,18 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
             NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
             notificationManager.notify(0 /*Id of Notification*/, notificationBuilder.build());
+        }else{
+
+            if(HomeActivity.isActive){
+
+                ((Activity) HomeActivity.context).runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        HomeActivity.getTotalDeposit();
+                    }
+                });
+            }
         }
     }
 }
