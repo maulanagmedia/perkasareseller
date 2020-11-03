@@ -914,7 +914,7 @@ public class MainHome extends Fragment implements ViewPager.OnPageChangeListener
                             }
                             else if(namaMenu.equals("tcash")){
 
-                                llTcash.setVisibility(View.VISIBLE);
+                                llTcash.setVisibility(View.GONE);
                             }
                             else if(namaMenu.equals("perdana")){
 
