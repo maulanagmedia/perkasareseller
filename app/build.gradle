@@ -2,11 +2,11 @@ apply plugin: 'com.android.application'
 apply plugin: 'io.fabric' // for crashlitycs
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     defaultConfig {
         applicationId 'gmedia.net.id.perkasareseller'
         minSdkVersion 19
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 30
         versionName "2.18.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
