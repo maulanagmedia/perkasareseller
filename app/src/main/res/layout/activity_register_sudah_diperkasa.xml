@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityRegisterSudahDiperkasa">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusableInTouchMode="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:id="@+id/rl_map"
+            app:layout_constraintDimensionRatio="3:2"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <fragment
+                android:id="@+id/map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:layout_marginRight="10dp"
+                android:paddingRight="5dp"
+                android:paddingLeft="5dp"
+                android:text="Sesuaikan Posisi"
+                android:id="@+id/btn_refresh_position"
+                android:textColor="@color/color_white"
+                android:drawablePadding="4dp"
+                android:textSize="10sp"
+                android:drawableLeft="@drawable/ic_refresh_black"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/bg_input"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/rl_map"
+            android:id="@+id/ll_nama"
+            style="@style/formGroup">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nama Outlet*"
+                style="@style/Subtitle"/>
+
+            <EditText
+                android:id="@+id/txt_nama"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/ValueEdittext"
+                android:inputType="textPersonName"
+                android:imeOptions="actionNext"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/ll_nama"
+            android:id="@+id/ll_alamat"
+            style="@style/formGroup">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Alamat*"
+                style="@style/Subtitle"/>
+
+            <EditText
+                android:id="@+id/txt_alamat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/ValueEdittext"
+                android:inputType="textPersonName"
+                android:imeOptions="actionNext"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/ll_alamat"
+            android:id="@+id/ll_ktp"
+            style="@style/formGroup">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="KTP"
+                style="@style/Subtitle"/>
+
+            <EditText
+                android:id="@+id/txt_ktp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/ValueEdittext"
+                android:inputType="numberSigned"
+                android:imeOptions="actionNext"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/ll_ktp"
+            android:id="@+id/ll_kelurahan"
+            style="@style/formGroup">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kelurahan"
+                style="@style/Subtitle"/>
+
+            <EditText
+                android:id="@+id/txt_kelurahan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/ValueEdittext"
+                android:inputType="textPersonName"
+                android:imeOptions="actionNext"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/ll_kelurahan"
+            android:id="@+id/ll_kecamatan"
+            style="@style/formGroup">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kecamatan"
+                style="@style/Subtitle"/>
+
+            <EditText
+                android:id="@+id/txt_kecamatan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/ValueEdittext"
+                android:inputType="textPersonName"
+                android:imeOptions="actionNext"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/ll_kecamatan"
+            android:id="@+id/ll_kota"
+            style="@style/formGroup">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kota"
+                style="@style/Subtitle"/>
+
+            <EditText
+                android:id="@+id/txt_kota"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/ValueEdittext"
+                android:inputType="textPersonName"
+                android:imeOptions="actionNext"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/ll_kota"
+            android:id="@+id/ll_noreseller"
+            style="@style/formGroup">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/nomor_reseller_star"
+                style="@style/Subtitle"/>
+
+            <EditText
+                android:id="@+id/txt_nomor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/ValueEdittext"
+                android:inputType="phone"
+                android:imeOptions="actionNext"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/ll_noreseller"
+            android:id="@+id/ll_nopemilik"
+            style="@style/formGroup">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No. Hp"
+                style="@style/Subtitle"/>
+
+            <EditText
+                android:id="@+id/txt_nomorhp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/ValueEdittext"
+                android:inputType="phone"
+                android:imeOptions="actionNext"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/ll_nopemilik"
+            android:id="@+id/ll_email"
+            style="@style/formGroup">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                style="@style/Subtitle"/>
+
+            <EditText
+                android:id="@+id/txt_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/ValueEdittext"
+                android:inputType="textEmailAddress"
+                android:imeOptions="actionNext"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/ll_email"
+            android:id="@+id/ll_bank"
+            style="@style/formGroup">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bank"
+                style="@style/Subtitle"/>
+
+            <EditText
+                android:id="@+id/txt_bank"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/ValueEdittext"
+                android:inputType="textPersonName"
+                android:imeOptions="actionNext"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/ll_bank"
+            android:id="@+id/ll_rekening"
+            style="@style/formGroup">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rekening"
+                style="@style/Subtitle"/>
+
+            <EditText
+                android:id="@+id/txt_rekening"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/ValueEdittext"
+                android:inputType="textPhonetic"
+                android:imeOptions="actionNext"/>
+
+            <EditText
+                android:id="@+id/txt_kontak"
+                style="@style/ValueEdittext"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:inputType="textPersonName" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/ll_rekening"
+            android:id="@+id/ll_tempo"
+            style="@style/formGroup">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tempo"
+                style="@style/Subtitle"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Diperbolehkan Tempo"
+                    android:id="@+id/cb_tempo"/>
+
+                <EditText
+                    android:id="@+id/txt_tempo"
+                    android:layout_marginLeft="8dp"
+                    android:layout_toRightOf="@id/cb_tempo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/ValueEdittext"
+                    android:hint="Hari"
+                    android:inputType="numberSigned"
+                    android:imeOptions="actionNext"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/ll_tempo"
+            android:id="@+id/ll_cp"
+            style="@style/formGroup">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Contact Person"
+                style="@style/Subtitle"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/ll_cp"
+            android:id="@+id/ll_digipos"
+            style="@style/formGroup">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ID Digipos"
+                style="@style/Subtitle"/>
+
+            <EditText
+                android:id="@+id/txt_digipos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/ValueEdittext"
+                android:inputType="textPersonName"
+                android:imeOptions="actionNext"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/ll_digipos"
+            android:id="@+id/ll_kategori_outlet"
+            style="@style/formGroup">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Kategori Outlet"
+                style="@style/Subtitle"/>
+
+            <EditText
+                android:id="@+id/txt_kategori_outlet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/ValueEdittext"
+                android:inputType="textPersonName"
+                android:imeOptions="actionNext"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/ll_kategori_outlet"
+            android:id="@+id/ll_jenis_outlet"
+            style="@style/formGroup">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Jenis Outlet"
+                style="@style/Subtitle"/>
+
+            <EditText
+                android:id="@+id/txt_jenis_outlet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/ValueEdittext"
+                android:inputType="textPersonName"
+                android:imeOptions="actionNext"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/ll_jenis_outlet"
+            android:id="@+id/ll_segmentasi"
+            style="@style/formGroup">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Segmentasi"
+                style="@style/Subtitle"/>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spn_segmentasi"></Spinner>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/ll_segmentasi"
+            android:id="@+id/ll_limit_order_malam"
+            style="@style/formGroup">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Limit Order Malam"
+                style="@style/Subtitle"/>
+
+            <EditText
+                android:id="@+id/txt_limit_order_malam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/ValueEdittext"
+                android:inputType="numberSigned"
+                android:imeOptions="actionNext"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/ll_limit_order_malam"
+            android:id="@+id/ll_konsinyasi"
+            style="@style/formGroup">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Konsinyasi"
+                style="@style/Subtitle"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dapat Konsinyasi"
+                    android:id="@+id/cb_konsinyasi"/>
+
+                <EditText
+                    android:id="@+id/txt_limit_konsinyasi"
+                    android:layout_marginLeft="8dp"
+                    android:layout_toRightOf="@id/cb_konsinyasi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/ValueEdittext"
+                    android:hint="Limit Konsinyasi (Unit/ jumlah)"
+                    android:inputType="numberSigned"
+                    android:imeOptions="actionDone"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@+id/ll_konsinyasi"
+            android:id="@+id/ll_area"
+            style="@style/formGroup">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/area_star"
+                style="@style/Subtitle"/>
+
+            <EditText
+                android:id="@+id/txt_area"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/ValueEdittext.disable"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/ll_area"
+            android:id="@+id/rl_gambar"
+            style="@style/formGroup">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Foto (bisa lebih dari satu)"
+                android:id="@+id/tv_title"
+                style="@style/Subtitle"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_title"
+                android:layout_marginTop="@dimen/padding5"
+                android:id="@+id/rv_photo"></androidx.recyclerview.widget.RecyclerView>
+
+            <cz.intik.overflowindicator.OverflowPagerIndicator
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:id="@+id/opi_photo"
+                android:layout_marginBottom="12dp"
+                android:layout_marginTop="150dp">
+            </cz.intik.overflowindicator.OverflowPagerIndicator>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/padding5"
+                android:paddingBottom="@dimen/padding5">
+
+                <ImageButton
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    android:src="@drawable/ic_photo_camera"
+                    android:scaleType="centerInside"
+                    android:id="@+id/ib_photo"
+                    android:background="?attr/selectableItemBackground"
+                    android:padding="8dp"
+                    />
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/rl_gambar"
+            android:id="@+id/rl_ktp"
+            style="@style/formGroup">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:text="KTP"
+                android:id="@+id/tv_title1"
+                style="@style/Subtitle"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_height="140dp"
+                android:layout_below="@id/tv_title1"
+                android:id="@+id/iv_ktp"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:text="Ambil Gambar KTP"
+                android:id="@+id/btn_ktp"
+                android:layout_below="@id/iv_ktp"
+                android:textColor="@color/color_white"
+                android:background="@drawable/bg_button_blue"/>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rl_ktp" >
+
+            <Button
+                android:id="@+id/btn_simpan"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:background="@drawable/bg_button_red_round"
+                android:text="Simpan"
+                android:textColor="@color/color_white_pure"
+                android:padding="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:textSize="11sp"
+                />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
