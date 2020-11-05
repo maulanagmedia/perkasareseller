@@ -1,12 +1,17 @@
 package gmedia.net.id.perkasareseller;
 
 import android.Manifest;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Handler;
 import com.google.android.material.snackbar.Snackbar;
+
+import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import android.os.Bundle;
 import android.view.View;
@@ -204,15 +209,36 @@ public class LoginScreen extends RuntimePermissionsActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(context, RegisterActivity.class);
-                startActivity(intent);
+                Dialog dialog = new Dialog(context);
+                dialog.setContentView(R.layout.popup_pilih_dulu);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#00ffffff")));
+                CardView cv_sdh_diperkasa, cv_baru;
+
+                cv_baru = dialog.findViewById(R.id.daftar_baru);
+                cv_sdh_diperkasa = dialog.findViewById(R.id.cr_sudah_diperkasa);
+
+                cv_sdh_diperkasa.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(context, ActivityRegisterSudahDiperkasa.class);
+                        startActivity(intent);
+                    }
+                });
+
+                cv_baru.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(context, RegisterActivity.class);
+                        startActivity(intent);
+                    }
+                });
+                dialog.show();
             }
         });
 
         tvReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Intent intent = new Intent(context, ResetActivity.class);
                 startActivity(intent);
             }

@@ -8,6 +8,8 @@
     <color name="colorPrimaryDark">#030405</color>
     <color name="colorAccent">#4D7596</color>
 
+    <color name="colorTransparant">#00ffffff</color>
+    <color name="black_overlay">#66000000</color>
     <color name="color_notif">#465a61</color>
     <color name="color_red">#ff020b</color>
     <color name="color_red_active">#ed6e73</color>
@@ -42,7 +44,7 @@
     <color name="color_grey2">#ececec</color>
     <color name="color_red_grey">#C59696</color>
 
-    <color name="color_gradient_1">#00ffffff</color>
+    <color name="color_gradient_1">#00FFFFFF</color>
     <color name="color_gradient_2">#d4d4d4</color>
     <color name="color_pink">#ffd1d1</color>
     <color name="color_orange_active">#ff935e</color>
