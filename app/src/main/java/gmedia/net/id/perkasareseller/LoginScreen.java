@@ -220,7 +220,7 @@ public class LoginScreen extends RuntimePermissionsActivity {
                 cv_sdh_diperkasa.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(context, ActivityRegisterSudahDiperkasa.class);
+                        Intent intent = new Intent(context, RegisterActivity.class);
                         startActivity(intent);
                     }
                 });
@@ -228,7 +228,7 @@ public class LoginScreen extends RuntimePermissionsActivity {
                 cv_baru.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(context, RegisterActivity.class);
+                        Intent intent = new Intent(context, ActivityRegisterSudahDiperkasa.class);
                         startActivity(intent);
                     }
                 });
