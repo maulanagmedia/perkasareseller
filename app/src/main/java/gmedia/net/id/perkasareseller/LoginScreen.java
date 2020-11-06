@@ -228,7 +228,7 @@ public class LoginScreen extends RuntimePermissionsActivity {
                 cv_baru.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(context, ActivityRegisterSudahDiperkasa.class);
+                        Intent intent = new Intent(context, RegisterNew.class);
                         startActivity(intent);
                     }
                 });
