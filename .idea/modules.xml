@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/perkasareseller.iml" filepath="$PROJECT_DIR$/.idea/modules/perkasareseller.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/perkasareseller.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/perkasareseller.app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bluetoothprinter/perkasareseller.bluetoothprinter.iml" filepath="$PROJECT_DIR$/.idea/modules/bluetoothprinter/perkasareseller.bluetoothprinter.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/circualreveal/perkasareseller.circualreveal.iml" filepath="$PROJECT_DIR$/.idea/modules/circualreveal/perkasareseller.circualreveal.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/maulanacustommodul/perkasareseller.maulanacustommodul.iml" filepath="$PROJECT_DIR$/.idea/modules/maulanacustommodul/perkasareseller.maulanacustommodul.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/PerkasaReseller.iml" filepath="$PROJECT_DIR$/.idea/modules/PerkasaReseller.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/PerkasaReseller.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/PerkasaReseller.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/bluetoothprinter/PerkasaReseller.bluetoothprinter.iml" filepath="$PROJECT_DIR$/.idea/modules/bluetoothprinter/PerkasaReseller.bluetoothprinter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/circualreveal/PerkasaReseller.circualreveal.iml" filepath="$PROJECT_DIR$/.idea/modules/circualreveal/PerkasaReseller.circualreveal.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/maulanacustommodul/PerkasaReseller.maulanacustommodul.iml" filepath="$PROJECT_DIR$/.idea/modules/maulanacustommodul/PerkasaReseller.maulanacustommodul.iml" />
     </modules>
   </component>
 </project>

@@ -5,10 +5,9 @@
     android:background="@color/colorTransparant"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
     <RelativeLayout
         android:layout_width="250dp"
-        android:layout_height="145dp"
+        android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:layout_centerInParent="true"
         android:background="@drawable/border_corner_grey_light">
@@ -16,7 +15,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
             android:layout_margin="8dp"
             android:weightSum="2"
             android:orientation="vertical">
@@ -29,21 +27,19 @@
                 android:layout_marginRight="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="42dp"
-                app:cardCornerRadius="10dp"
+                app:cardCornerRadius="4dp"
                 android:elevation="10dp">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/color_black"
-                android:textStyle="bold"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:layout_margin="6dp"
                 android:text="Sudah terdaftar diperkasa"/>
 
             </androidx.cardview.widget.CardView>
-
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/daftar_baru"
@@ -54,7 +50,7 @@
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="5dp"
-                app:cardCornerRadius="10dp"
+                app:cardCornerRadius="4dp"
                 android:elevation="10dp">
                 <TextView
                     android:layout_width="match_parent"
@@ -63,7 +59,6 @@
                     android:layout_gravity="center"
                     android:layout_margin="6dp"
                     android:textColor="@color/color_black"
-                    android:textStyle="bold"
                     android:text="Buat Baru"/>
             </androidx.cardview.widget.CardView>
 

@@ -1,9 +1,15 @@
 <component name="libraryTable">
   <library name="Gradle: com.google.android.gms:play-services-maps:11.8.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f2c168b35e0a1df695fc15a7ea99bf28/jetified-play-services-maps-11.8.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f2c168b35e0a1df695fc15a7ea99bf28/jetified-play-services-maps-11.8.0/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f2c168b35e0a1df695fc15a7ea99bf28/jetified-play-services-maps-11.8.0/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d6a570bbfe4e640b943f79197dcfbabf/jetified-play-services-maps-11.8.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d6a570bbfe4e640b943f79197dcfbabf/jetified-play-services-maps-11.8.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/d6a570bbfe4e640b943f79197dcfbabf/jetified-play-services-maps-11.8.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b413534c7594ec2ee0027112c3f4804f/jetified-play-services-maps-11.8.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b413534c7594ec2ee0027112c3f4804f/jetified-play-services-maps-11.8.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b413534c7594ec2ee0027112c3f4804f/jetified-play-services-maps-11.8.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b5df943c5f14014af4c6acbbc0ed6c8e/jetified-play-services-maps-11.8.0/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b5df943c5f14014af4c6acbbc0ed6c8e/jetified-play-services-maps-11.8.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/b5df943c5f14014af4c6acbbc0ed6c8e/jetified-play-services-maps-11.8.0/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
