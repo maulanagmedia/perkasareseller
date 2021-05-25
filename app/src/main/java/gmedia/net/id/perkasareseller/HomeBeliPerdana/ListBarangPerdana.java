@@ -153,7 +153,7 @@ public class ListBarangPerdana extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        ApiVolley request = new ApiVolley(context, jBody, "POST", ServerURL.priceList, new ApiVolley.VolleyCallback() {
+        ApiVolley request = new ApiVolley(context, jBody, "POST", ServerURL.priceListBaru, new ApiVolley.VolleyCallback() {
             @Override
             public void onSuccess(String result) {
 
@@ -174,9 +174,9 @@ public class ListBarangPerdana extends AppCompatActivity {
                         for(int i = 0; i < jsonArray.length(); i ++){
                             JSONObject jo = jsonArray.getJSONObject(i);
                             listBarang.add(
-                                    new CustomItem(jo.getString("kodebrg"),
-                                            jo.getString("namabrg"),
-                                            jo.getString("harga")));
+                                    new CustomItem(jo.getString("kodegroup"),
+                                            jo.getString("namagroup"),
+                                            jo.getString("harga_retail")));
                         }
 
                     }else{
@@ -220,6 +220,8 @@ public class ListBarangPerdana extends AppCompatActivity {
             }
         });
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

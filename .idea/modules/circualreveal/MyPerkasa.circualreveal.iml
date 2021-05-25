@@ -32,10 +32,9 @@
     <exclude-output />
     <content url="file://$MODULE_DIR$/../../../circualreveal">
       <sourceFolder url="file://$MODULE_DIR$/../../../circualreveal/src/main/java" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../circualreveal/build/generated/ap_generated_sources/debug/out" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../circualreveal/build/generated/source/buildConfig/debug" isTestSource="false" generated="true" />
-      <sourceFolder url="file://$MODULE_DIR$/../../../circualreveal/build/generated/source/buildConfig/androidTest/debug" isTestSource="true" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../../circualreveal/build/generated/res/resValues/debug" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../circualreveal/build/generated/source/buildConfig/debug" isTestSource="false" generated="true" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../circualreveal/build/generated/ap_generated_sources/debug/out" isTestSource="false" generated="true" />
       <excludeFolder url="file://$MODULE_DIR$/../../../circualreveal/.gradle" />
       <excludeFolder url="file://$MODULE_DIR$/../../../circualreveal/build" />
     </content>

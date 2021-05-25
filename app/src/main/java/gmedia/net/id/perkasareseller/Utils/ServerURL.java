@@ -32,6 +32,8 @@ public class ServerURL {
     public static final String getDenom = baseURL + "profile/master_harga/";
     public static final String ubahPin = baseURL + "profile/ubah_pin/";
     public static final String priceList = baseURL + "Perdana/get_perdana";
+    public static final String priceListBaru = baseURL + "Perdana/get_perdana_group";
+    public static final String priceListPerkode = baseURL + "Perdana/get_perdana_group_detail";
     public static final String getPSPInformastion = baseURL + "Profile/view_customer_service/";
     public static final String getTotalDeposit = baseURL + "profile/total_deposite/";
     public static final String saveInfoStok = baseURL + "Profile/simpan_stok/";
@@ -60,6 +62,7 @@ public class ServerURL {
     public static final String getLatestVersion = baseURL + "Version/";
     public static final String getBukuPintar = baseURL + "Buku/";
     public static final String beliPerdana = baseURL + "Perdana/pre_order/";
+    public static final String beliPerdanaGroup = baseURL + "Perdana/pre_order_group/";
     public static final String getCCID = baseURL + "Direct_Sale/scan_perdana/";
     public static final String getKategoriPPOB = baseURL + "Ppob/kategori/";
     public static final String getProdukPPOB = baseURL + "Ppob/produk/";

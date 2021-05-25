@@ -15,11 +15,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.maulana.custommodul.ApiVolley;
 import com.maulana.custommodul.CustomItem;
 import com.maulana.custommodul.CustomView.DialogBox;
 import com.maulana.custommodul.ItemValidation;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import gmedia.net.id.perkasareseller.R;
+import gmedia.net.id.perkasareseller.Utils.ServerURL;
 
 public class DetailBarangPerdana extends AppCompatActivity {
 
@@ -100,8 +106,7 @@ public class DetailBarangPerdana extends AppCompatActivity {
                     currentString = formatted;
                     edtJumlah.setText(formatted);
                     edtJumlah.setSelection(formatted.length());
-
-                    updateTotalHarga();
+                    getHarga(cleanString);
                     edtJumlah.addTextChangedListener(this);
                 }
             }
@@ -149,6 +154,66 @@ public class DetailBarangPerdana extends AppCompatActivity {
                             }
                         })
                         .show();
+            }
+        });
+    }
+
+    private void getHarga(final String jumlah) {
+        JSONObject jBody = new JSONObject();
+        try {
+            jBody.put("kdgroup", kdbrg);
+            jBody.put("jumlah", jumlah.equals("") ? "0" : jumlah);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        ApiVolley request = new ApiVolley(context, jBody, "POST", ServerURL.priceListPerkode, new ApiVolley.VolleyCallback() {
+            @Override
+            public void onSuccess(String result) {
+
+                    String message = "Terjadi kesalahan saat memuat data, mohon coba kembali";
+
+                try {
+                    JSONObject response = new JSONObject(result);
+                    String status = response.getJSONObject("metadata").getString("status");
+                    message = response.getJSONObject("metadata").getString("message");
+
+                    if(status.equals("200")){
+                        harga = response.getJSONObject("response").getString("harga");
+                        tvHarga.setText(iv.ChangeToRupiahFormat(harga));
+                    }
+                    updateTotalHarga();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+
+                    View.OnClickListener clickListener = new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+
+                            dialogBox.dismissDialog();
+                            getHarga(jumlah);
+                        }
+                    };
+
+                    dialogBox.showDialog(clickListener, "Ulangi Proses", message);
+                }
+
+            }
+
+            @Override
+            public void onError(String result) {
+
+
+                View.OnClickListener clickListener = new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        dialogBox.dismissDialog();
+                        getHarga(jumlah);
+                    }
+                };
+
+                dialogBox.showDialog(clickListener, "Ulangi Proses", "Terjadi kesalahan saat memuat data, mohon coba kembali");
             }
         });
     }

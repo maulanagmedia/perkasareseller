@@ -399,7 +399,7 @@ public class DetailKeranjangPerdana extends AppCompatActivity {
                 e.printStackTrace();
         }
 
-        ApiVolley request = new ApiVolley(context, jBody, "POST", ServerURL.beliPerdana, new ApiVolley.VolleyCallback() {
+        ApiVolley request = new ApiVolley(context, jBody, "POST", ServerURL.beliPerdanaGroup, new ApiVolley.VolleyCallback() {
             @Override
             public void onSuccess(String result) {
 
