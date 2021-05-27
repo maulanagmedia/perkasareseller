@@ -70,6 +70,9 @@ public class ServerURL {
     public static final String saveHargaPPOB = baseURL + "Ppob/add_harga_custom/";
     public static final String getProvider = baseURL + "Ppob/provider/";
     public static final String getBankBayar = baseURL + "Bank/";
+    public static final String getQR = baseURL + "Perdana/get_qr/";
+    public static final String cetakNotaPerdana = baseURL + "Mkios/cetak_pembelian_perdana/";
+    public static final String cetakNotaNgrs = baseURL + "Mkios/cetak_pembelian_ngrs/";
 
     //public static final String uploadFileURL = "http://192.168.12.147/psp/testupload/upload.php";
 }

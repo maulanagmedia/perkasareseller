@@ -206,7 +206,13 @@ public class MainTransaksi extends Fragment {
                 String atasnama = item.getItem16();
                 String bank = item.getItem15();
                 String expiredDate = item.getItem13();
-                showResultDialog(nominal, rekening, bank, atasnama, expiredDate);
+
+                if(item.getItem17().equals("SD")){
+
+                    showResultDialog(nominal, rekening, bank, atasnama, expiredDate);
+                }else{
+                    cetakNotaPerdana(item.getItem3(), item.getItem17());
+                }
             }
         });
     }
@@ -271,6 +277,74 @@ public class MainTransaksi extends Fragment {
         alert.show();
     }
 
+    private void cetakNotaPerdana(final String nobukti, final String flag) {
+
+        JSONObject jBody = new JSONObject();
+        try {
+            jBody.put("nobukti", nobukti);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        ApiVolley request = new ApiVolley(context, jBody, "POST", flag.equals("PD") ? ServerURL.cetakNotaPerdana : ServerURL.cetakNotaNgrs, new ApiVolley.VolleyCallback() {
+            @Override
+            public void onSuccess(String result) {
+
+                dialogBox.dismissDialog();
+                try {
+                    JSONObject response = new JSONObject(result);
+                    String status = response.getJSONObject("metadata").getString("status");
+
+                    if(status.equals("200")){
+
+                        String file = response.getJSONObject("response").getString("file");
+                        new DownloadFileFromURL(context,iv.getCurrentDate(FormatItem.formatTimestamp2)).execute(file);
+                    }else{
+                        dialogBox.showDialog(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+
+                                dialogBox.dismissDialog();
+                            }
+                        },"Ok","Order belum diproses sales");
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    getTableList(null);
+
+                    View.OnClickListener clickListener = new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+
+                            dialogBox.dismissDialog();
+                            cetakNotaPerdana(nobukti, flag);
+
+                        }
+                    };
+
+                    dialogBox.showDialog(clickListener, "Ulangi Proses", "Terjadi kesalahan saat mengambil data");
+                }
+            }
+
+            @Override
+            public void onError(String result) {
+
+                dialogBox.dismissDialog();
+                View.OnClickListener clickListener = new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        dialogBox.dismissDialog();
+                        cetakNotaPerdana(nobukti, flag);
+
+                    }
+                };
+
+                dialogBox.showDialog(clickListener, "Ulangi Proses", "Terjadi kesalahan saat mengambil data");
+            }
+        });
+    }
+
     private void getData() {
 
         dialogBox.showDialog(false);
@@ -314,6 +388,7 @@ public class MainTransaksi extends Fragment {
                                             ,jo.getString("rekening")
                                             ,jo.getString("bank")
                                             ,jo.getString("atasnama")
+                                            ,jo.getString("jenis")
 
                                     ));
                         }
