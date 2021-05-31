@@ -1,6 +1,7 @@
 package gmedia.net.id.perkasareseller.NavTransaksi.Adapter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import com.maulana.custommodul.ItemValidation;
 
 import java.util.List;
 
+import gmedia.net.id.perkasareseller.NavTransaksi.DetailQR;
 import gmedia.net.id.perkasareseller.R;
 
 
@@ -36,7 +38,7 @@ public class ListTransaksiAdapter extends ArrayAdapter{
 
     private static class ViewHolder {
         private TextView tvItem1, tvItem2, tvItem3, tvItem4, tvItem5, tvItem6, tvStatus, tvNo, tvJam;
-        private LinearLayout llDetail, llExpiration, llKeterangan;
+        private LinearLayout llDetail, llExpiration, llKeterangan, llQr;
         private ImageView ivCollapse;
     }
 
@@ -67,6 +69,7 @@ public class ListTransaksiAdapter extends ArrayAdapter{
             holder.llDetail = (LinearLayout) convertView.findViewById(R.id.ll_detail);
             holder.llKeterangan = (LinearLayout) convertView.findViewById(R.id.ll_keterangan);
             holder.llExpiration = (LinearLayout) convertView.findViewById(R.id.ll_expiration);
+            holder.llQr = (LinearLayout) convertView.findViewById(R.id.ll_qr);
 
             convertView.setTag(holder);
         }else{
@@ -115,6 +118,25 @@ public class ListTransaksiAdapter extends ArrayAdapter{
             holder.tvItem5.setText(iv.ChangeFormatDateString(itemSelected.getItem13(), FormatItem.formatTimestamp, FormatItem.formatDateTimeDisplay));
 
         }
+
+        if(itemSelected.getItem17().equals("SD")){
+
+            holder.llQr.setVisibility(View.VISIBLE);
+        }else{
+
+            holder.llQr.setVisibility(View.GONE);
+        }
+
+        holder.llQr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(context, DetailQR.class);
+                intent.putExtra("nobukti", itemSelected.getItem3());
+                context.startActivity(intent);
+            }
+        });
+
         holder.tvStatus.setText(itemSelected.getItem9());
 
         if(itemSelected.getItem12().equals("")){

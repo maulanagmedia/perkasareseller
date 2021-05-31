@@ -36,10 +36,14 @@
         android:theme="@style/AppTheme"
         android:requestLegacyExternalStorage="true"
         android:usesCleartextTraffic="true">
-        <activity android:name=".NavTransaksi.DetailQR"></activity>
-        <activity android:name=".RegisterNew" />
-        <activity android:name=".ActivityRegisterSudahDiperkasa" />
-        <activity android:name=".HomeNGRS.OrderNGRS" />
+        <activity android:name=".NavTransaksi.DetailQR"
+            android:screenOrientation="portrait"></activity>
+        <activity android:name=".RegisterNew"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ActivityRegisterSudahDiperkasa"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".HomeNGRS.OrderNGRS"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".DetailSharePrintout"
             android:screenOrientation="portrait"
