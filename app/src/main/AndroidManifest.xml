@@ -37,7 +37,8 @@
         android:requestLegacyExternalStorage="true"
         android:usesCleartextTraffic="true">
         <activity android:name=".NavTransaksi.DetailQR"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeBlue"></activity>
         <activity android:name=".RegisterNew"
             android:screenOrientation="portrait"/>
         <activity android:name=".ActivityRegisterSudahDiperkasa"
