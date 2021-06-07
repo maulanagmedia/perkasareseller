@@ -279,6 +279,7 @@ public class MainTransaksi extends Fragment {
 
     private void cetakNotaPerdana(final String nobukti, final String flag) {
 
+        dialogBox.showDialog(false);
         JSONObject jBody = new JSONObject();
         try {
             jBody.put("nobukti", nobukti);

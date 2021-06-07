@@ -3,6 +3,7 @@ package gmedia.net.id.perkasareseller.NavTransaksi;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -36,6 +37,8 @@ public class DownloadFileFromURL extends AsyncTask<String, Integer, String> {
     private Context context;
     private String selectedDate;
     private String ts = "";
+    ProgressDialog progressBar;
+    private int progressBarStatus = 0;
 
     public DownloadFileFromURL(Context context, String selectedDate) {
         this.context = context;
@@ -47,6 +50,15 @@ public class DownloadFileFromURL extends AsyncTask<String, Integer, String> {
         super.onPreExecute();
         ts = selectedDate;
 
+        progressBar = new ProgressDialog(context);
+        progressBar.setCancelable(true);
+        progressBar.setMessage("File downloading ...");
+        progressBar.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        progressBar.setProgress(0);
+        progressBar.setMax(100);
+        progressBar.show();
+
+        progressBarStatus = 0;
 
         //CustomToast.showToast(context,msg);
     }
@@ -104,12 +116,15 @@ public class DownloadFileFromURL extends AsyncTask<String, Integer, String> {
     protected void onProgressUpdate(Integer... progress) {
         //build.setProgress(100, progress[0], false);
         //mNotifyManager.notify(id, build.build());
+        progressBarStatus = progress[0];
+        progressBar.setProgress(progressBarStatus);
         super.onProgressUpdate(progress);
     }
 
     @Override
     protected void onPostExecute(String file_url) {
 
+        progressBar.dismiss();
         Uri uri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID + ".provider",fileurl);
 
         Intent openFile = new Intent(Intent.ACTION_VIEW, uri);
